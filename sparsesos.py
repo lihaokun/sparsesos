@@ -83,6 +83,7 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
     #P_points=P1.integral_points()
     P2=(QQ(1)/2)*P1
     points=P2.integral_points()
+    #print(len(points))
     #print(dct,points,P_points,P2,P1)
     n=len(points)
     R=[];
@@ -96,6 +97,11 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
                 R[i][j]=1
     L=com(R)
     S=set()
+    #for i in range(len(L)):
+    #    co2=[]
+    #    for j in range(len(L[i])):
+    #        co2.append(points[L[i][j]])
+    #    print(co2)
     co=[]
     for i in range(len(L)):
         co1=[]
