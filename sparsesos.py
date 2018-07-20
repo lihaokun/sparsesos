@@ -15,12 +15,15 @@ def strtoPolynomial(s):
         while s[i]==" " and i<len(s):
             i+1
         return i;
-    assert type(s)==str
+    if type(s)!=str:
+        print("str error.",s,"is not a str.")
+        sys.exit(0)
     dct=dict()
     i=0;n=0;j=0
     L=[];
     for i in range(len(s)):
-        assert is_good(s[i])
+        if not is_good(s[i]):
+            print("polynomial error. %s" % s[i])
         if is_op(s[i]) or s[i]==" ":
             if j<i:
                 x=s[j:i]
@@ -49,8 +52,13 @@ def strtoPolynomial(s):
                 L[i]="**"
     s1="".join(L);
     #print(s1)
-    f=eval(s1);
-    #print(f)
+    try:
+        f=eval(s1);
+    except:
+        print("polynomial error. sage can't build this polynomial.")
+        sys.exit(0)
+    else:
+        print(f)
     if n==0:
         R=None
     return f,R
@@ -77,7 +85,7 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
             if i % 2!=0:
                 return False
         return True
-    print(f)
+    #print(f)
     dct=f.dict()
     P1=f.newton_polytope()
     #P_points=P1.integral_points()
