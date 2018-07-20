@@ -92,7 +92,7 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
     #P_points=P1.integral_points()
     P2=(QQ(1)/2)*P1
     points=P2.integral_points()
-    #print(len(points))
+    print(len(points))
     #print(dct,points,P_points,P2,P1)
     n=len(points)
     R=[];
@@ -130,17 +130,18 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
                 S.add(lk)
         co.append(co1)
     co1=[]
-    Ls.append(Ln-len(L))
-    for i in range(Ln,len(L)):
-        lk=ETuple(tuple(points[L[i][0]]+points[L[i][0]]))
-        co1.append(lk)
-        S.add(lk)
-    co.append(co1)
+    if Ln<len(L):
+        Ls.append(Ln-len(L))
+        for i in range(Ln,len(L)):
+            lk=ETuple(tuple(points[L[i][0]]+points[L[i][0]]))
+            co1.append(lk)
+            S.add(lk)
+        co.append(co1)
     P_points=[None]
     P_points.extend(list(S))
-    print(P_points)
+#    print(P_points)
     fout=open(f1,"w");
-    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,Ln+1))
+    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,len(Ls)))
     fout.write(" ".join(map(str,Ls))+"= bLOCKsTRUCT\n")
     c=[]
     for i in P_points[1:]:
@@ -170,15 +171,16 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
                 fout.write("}")
 
             fout.write("}\n")
-        fout.write("{")
-        co1=[];
-        for j in range(-Ls[-1]):
-            if co[-1][j]==i:
-                co1.append("1")
-            else:
-                co1.append("0")
-        fout.write(",".join(co1))
-        fout.write("}\n")
+        if Ls[-1]<0:
+            fout.write("{")
+            co1=[];
+            for j in range(-Ls[-1]):
+                if co[-1][j]==i:
+                    co1.append("1")
+                else:
+                    co1.append("0")
+            fout.write(",".join(co1))
+            fout.write("}\n")
 
         fout.write("}\n")
 
