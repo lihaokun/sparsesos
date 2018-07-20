@@ -79,6 +79,7 @@ def com(R):
                     k[j]=1
                     L[-1].append(j)
     return L
+
 def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
     def tuple_even(l):
         for i in l:
@@ -104,6 +105,12 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
             if tuple_even(l) or l in dct:
                 R[i][j]=1
     L=com(R)
+    L.sort(key=lambda x:-len(x))
+    Ln=len(L)
+    Ln1=Ln;
+    while Ln>0 and len(L[Ln-1])==1:
+        Ln-=1
+
     S=set()
     #for i in range(len(L)):
     #    co2=[]
@@ -111,43 +118,41 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
     #        co2.append(points[L[i][j]])
     #    print(co2)
     co=[]
-    for i in range(len(L)):
+    Ls=[]
+    for i in range(Ln):
         co1=[]
-        for j in range(len(L[i])):
+        Ls.append(len(L[i]))
+        for j in range(Ls[-1]):
             co1.append([])
-            for k in range(len(L[i])):
+            for k in range(Ls[-1]):
                 lk=ETuple(tuple(points[L[i][j]]+points[L[i][k]]))
                 co1[-1].append(lk)
                 S.add(lk)
         co.append(co1)
-    P_points=list(S)
+    co1=[]
+    Ls.append(Ln-len(L))
+    for i in range(Ln,len(L)):
+        lk=ETuple(tuple(points[L[i][0]]+points[L[i][0]]))
+        co1.append(lk)
+        S.add(lk)
+    co.append(co1)
+    P_points=[None]
+    P_points.extend(list(S))
+    print(P_points)
     fout=open(f1,"w");
-    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points),len(L)))
-    fout.write(" ".join(map(str,map(len,L)))+"= bLOCKsTRUCT\n")
+    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,Ln+1))
+    fout.write(" ".join(map(str,Ls))+"= bLOCKsTRUCT\n")
     c=[]
-    for i in P_points:
+    for i in P_points[1:]:
         #i1=ETuple(tuple(i))
         if i in dct:
             c.append(dct[i])
         else:
             c.append(0)
     fout.write("{"+",".join(map(str,c))+"}\n")
-    for j in range(len(L)):
-        fout.write("{")
-        co1=["0"]*len(L[j])
-        for k1 in range(len(L[j])):
-            if k1==0:
-                fout.write("{")
-            else:
-                fout.write(",{")
-
-            fout.write(",".join(co1))
-            fout.write("}")
-        fout.write("}\n")
-    fout.write("}\n")
     for i in P_points:
         fout.write("{")
-        for j in range(len(L)):
+        for j in range(Ln):
             fout.write("{")
             co1=[0]*len(L[j])
             for k1 in range(len(L[j])):
@@ -165,6 +170,15 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
                 fout.write("}")
 
             fout.write("}\n")
+        fout.write("{")
+        co1=[];
+        for j in range(-Ls[-1]):
+            if co[-1][j]==i:
+                co1.append("1")
+            else:
+                co1.append("0")
+        fout.write(",".join(co1))
+        fout.write("}\n")
 
         fout.write("}\n")
 
