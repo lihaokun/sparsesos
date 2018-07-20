@@ -1,5 +1,6 @@
 SPARSESOS
 ================
+Sparsesos is a simple implementation of determining whether a polynomial is cross sparse SOS polynomial.
 
 Dependencies
 ----------------
