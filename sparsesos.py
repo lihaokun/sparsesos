@@ -63,6 +63,40 @@ def strtoPolynomial(s):
         R=None
     return f,R
 def com(R):
+    def deep(i,l,ll):
+        this=[None,ll[0]];
+        ln=len(l)
+        while this[1]!=None:
+            j=this[1][0];
+            if k[j]==0 and R[i][j]:
+                k[j]=1;
+                l.append(j)
+                if this[0]==None:
+                    ll[0]=this[1]
+                    this=[None,this[1]]
+                else:
+                    this[0][1]=this[1][1]
+                    this=[this[0],this[1][1]]
+            else:
+                this=[this[1],this[1][1]]
+        for j in range(ln,len(l)):
+            deep(l[j],l,ll)
+    n=len(R)
+    k=[0]*n
+    L=[]
+    head=[0,None];end=head
+    ll=[head]
+    for i in range(1,n):
+        end[1]=[i,None]
+        end=end[1]
+    for i in range(n):
+        if k[i]==0:
+            l=[]
+            deep(i,l,ll);
+            l.sort()
+            L.append(l)
+    return(L)
+def com1(R):
     n=len(R);
     for k in range(n):
         for i in range(n):
@@ -80,43 +114,79 @@ def com(R):
                     L[-1].append(j)
     return L
 
-def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result"):
+def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=True):
     def tuple_even(l):
         for i in l:
             if i % 2!=0:
                 return False
         return True
+    def getpoint(mn,mx,n):
+        if n==1:
+            return [ETuple([m])]
+        co=[0]*(n)
+        L=[]
+        for m in range(mn,mx+1):
+            i=n-1;sm=m;
+            while i>=0:
+                if i==n-1:
+                    co[i]=sm
+                    L.append(tuple(co))
+                    i=i-1;
+                    co[i]+=1;
+                    sm-=1
+                elif sm>=0:
+                    i=i+1;
+                    co[i]=0;
+                else:
+                    sm+=co[i]
+                    i=i-1
+                    co[i]+=1;
+                    sm-=1
+        return L;
+    def list_add(l1,l2):
+        n=min(len(l1),len(l2))
+        L=[0]*n
+        for i in range(n):
+            L[i]=l1[i]+l2[i]
+        return(ETuple(L))
+
     #print(f)
     dct=f.dict()
-    P1=f.newton_polytope()
-    #P_points=P1.integral_points()
-    P2=(QQ(1)/2)*P1
-    points=P2.integral_points()
-    print(len(points))
-    #print(dct,points,P_points,P2,P1)
+    if newton_polytope:
+        P1=f.newton_polytope()
+        #P_points=P1.integral_points()
+        P2=(QQ(1)/2)*P1
+        points=P2.integral_points()
+        print(len(points))
+        #print(dct,points,P_points,P2,P1)
+    else:
+        L=map(sum,list(dct))
+        mx=max(L);mn=min(L)
+        if mx%2!=0 or mn%2!=0:
+            print("not sos!")
+            sys.exit(0)
+        print(mn,mx)
+        points=getpoint(mn//2,mx//2,len(list(dct)[0]))
+        print(len(points))
     n=len(points)
     R=[];
     for i in range(n):
         R.append([0]*n)
         for j in range(n):
-            l=ETuple(tuple(points[i]+points[j]))
-            #print(l,dct)
-            #l in dct
+            l=list_add(points[i],points[j])
             if tuple_even(l) or l in dct:
                 R[i][j]=1
+    print("================")
     L=com(R)
     L.sort(key=lambda x:-len(x))
+    #print(L)
+    print("================")
     Ln=len(L)
     Ln1=Ln;
     while Ln>0 and len(L[Ln-1])==1:
         Ln-=1
 
     S=set()
-    #for i in range(len(L)):
-    #    co2=[]
-    #    for j in range(len(L[i])):
-    #        co2.append(points[L[i][j]])
-    #    print(co2)
     co=[]
     Ls=[]
     for i in range(Ln):
@@ -125,7 +195,7 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result"):
         for j in range(Ls[-1]):
             co1.append([])
             for k in range(Ls[-1]):
-                lk=ETuple(tuple(points[L[i][j]]+points[L[i][k]]))
+                lk=list_add(points[L[i][j]],points[L[i][k]])
                 co1[-1].append(lk)
                 S.add(lk)
         co.append(co1)
@@ -133,13 +203,14 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result"):
     if Ln<len(L):
         Ls.append(Ln-len(L))
         for i in range(Ln,len(L)):
-            lk=ETuple(tuple(points[L[i][0]]+points[L[i][0]]))
+            lk=list_add(points[L[i][0]],points[L[i][0]])
             co1.append(lk)
             S.add(lk)
         co.append(co1)
     P_points=[None]
     P_points.extend(list(S))
 #    print(P_points)
+    print(" ".join(map(str,Ls)))
     fout=open(f1,"w");
     fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,len(Ls)))
     fout.write(" ".join(map(str,Ls))+"= bLOCKsTRUCT\n")

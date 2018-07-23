@@ -21,9 +21,9 @@ def BXM(m):
 
 if __name__=="__main__":
     if len(sys.argv)<2:
-        #help()
-        pass
+        m=input("m=")
     else:
         #print(sys.argv[1])
-        f=BXM(int(sys.argv[1]))
-        sparsesos.is_sparsesos(f)
+        m=sys.argv[1]
+    f=BXM(int(m))
+    sparsesos.is_sparsesos(f,newton_polytope=False)
