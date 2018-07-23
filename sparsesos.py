@@ -80,7 +80,7 @@ def com(R):
                     L[-1].append(j)
     return L
 
-def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
+def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result"):
     def tuple_even(l):
         for i in l:
             if i % 2!=0:
@@ -150,43 +150,26 @@ def is_sparsesos(f,f1="sparsesos.dat",f2="sparsesos.result"):
             c.append(dct[i])
         else:
             c.append(0)
-    fout.write("{"+",".join(map(str,c))+"}\n")
+    fout.write(",".join(map(str,c))+"\n")
+    ni=-1
     for i in P_points:
-        fout.write("{")
+        ni=ni+1
         for j in range(Ln):
-            fout.write("{")
-            co1=[0]*len(L[j])
             for k1 in range(len(L[j])):
-                if k1==0:
-                    fout.write("{")
-                else:
-                    fout.write(",{")
 
-                for k2 in range(len(L[j])):
+                for k2 in range(k1,len(L[j])):
                     if co[j][k1][k2]==i:
-                        co1[k2]="1"
-                    else:
-                        co1[k2]="0"
-                fout.write(",".join(co1))
-                fout.write("}")
+                        fout.write(" ".join([str(ni),str(j+1),str(k1+1),str(k2+1),"1"])+"\n")
+        for j in range(-Ls[-1]):
+            if co[-1][j]==i:
+                fout.write(" ".join([str(ni),str(Ln+1),str(j+1),str(j+1),"1"])+"\n")
 
-            fout.write("}\n")
-        if Ls[-1]<0:
-            fout.write("{")
-            co1=[];
-            for j in range(-Ls[-1]):
-                if co[-1][j]==i:
-                    co1.append("1")
-                else:
-                    co1.append("0")
-            fout.write(",".join(co1))
-            fout.write("}\n")
 
-        fout.write("}\n")
 
 
     fout.close()
-    os.system("sdpa %s %s" % (f1,f2))
+    #os.system("sdpa %s %s" % (f1,f2))
+    os.system("csdp %s %s" % (f1,f2))
 
 
 if __name__=="__main__":
