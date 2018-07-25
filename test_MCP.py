@@ -48,4 +48,4 @@ def mcp():
     return((a**2+2*b**2+c**2)*p22)
 if __name__=="__main__":
     f=mcp()
-    sparsesos.is_sparsesos(f,newton_polytope=True)
+    sparsesos.is_sparsesos(f)
