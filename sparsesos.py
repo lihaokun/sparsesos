@@ -1,7 +1,9 @@
+from __future__ import print_function
 import sys
 import os
 from sage.all import QQ,PolynomialRing
 from sage.rings.polynomial.polydict import ETuple
+
 def strtoPolynomial(s):
     def is_good(x):
         return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x in "()+-*^_"
@@ -113,8 +115,10 @@ def com1(R):
                     k[j]=1
                     L[-1].append(j)
     return L
-
-def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=True):
+def com2(R):
+    n=len(R)
+    return [list(range(n))]
+def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=True,com=com):
     def tuple_even(l):
         for i in l:
             if i % 2!=0:
@@ -126,11 +130,12 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
         co=[0]*(n)
         L=[]
         for m in range(mn,mx+1):
-            i=n-1;sm=m;
+            co=[0]*(n);i=n-1;sm=m;#s=0
             while i>=0:
                 if i==n-1:
                     co[i]=sm
                     L.append(tuple(co))
+                    #s=s+1
                     i=i-1;
                     co[i]+=1;
                     sm-=1
@@ -142,6 +147,7 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
                     i=i-1
                     co[i]+=1;
                     sm-=1
+            #print(m,s)
         return L;
     def list_add(l1,l2):
         n=min(len(l1),len(l2))
@@ -172,10 +178,12 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
     R=[];
     for i in range(n):
         R.append([0]*n)
-        for j in range(n):
+    for i in range(n):
+        for j in range(i,n):
             l=list_add(points[i],points[j])
             if tuple_even(l) or l in dct:
                 R[i][j]=1
+                R[j][i]=1
     print("================")
     L=com(R)
     L.sort(key=lambda x:-len(x))
@@ -186,31 +194,42 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
     while Ln>0 and len(L[Ln-1])==1:
         Ln-=1
 
-    S=set()
-    co=[]
+    S=dict()
+    Sn=0
     Ls=[]
+    FOUTL=[]
+    SL=[]
     for i in range(Ln):
-        co1=[]
         Ls.append(len(L[i]))
         for j in range(Ls[-1]):
-            co1.append([])
-            for k in range(Ls[-1]):
+            for k in range(j,Ls[-1]):
                 lk=list_add(points[L[i][j]],points[L[i][k]])
-                co1[-1].append(lk)
-                S.add(lk)
-        co.append(co1)
-    co1=[]
+                if lk in S:
+                    FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                else:
+                    S[lk]=Sn
+                    SL.append(lk)
+                    FOUTL.append([])
+                    FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    Sn+=1
     if Ln<len(L):
         Ls.append(Ln-len(L))
         for i in range(Ln,len(L)):
             lk=list_add(points[L[i][0]],points[L[i][0]])
-            co1.append(lk)
-            S.add(lk)
-        co.append(co1)
+            if lk in S:
+                FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
+            else:
+                S[lk]=Sn
+                SL.append(lk)
+                FOUTL.append([])
+                FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
+                Sn+=1
     P_points=[None]
-    P_points.extend(list(S))
+    P_points.extend(SL)
 #    print(P_points)
     print(" ".join(map(str,Ls)))
+    #print("\n".join(map(str,L)))
+    print("====file out begin=====")
     fout=open(f1,"w");
     fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,len(Ls)))
     fout.write(" ".join(map(str,Ls))+"= bLOCKsTRUCT\n")
@@ -222,23 +241,12 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
         else:
             c.append(0)
     fout.write(",".join(map(str,c))+"\n")
-    ni=-1
-    for i in P_points:
-        ni=ni+1
-        for j in range(Ln):
-            for k1 in range(len(L[j])):
-
-                for k2 in range(k1,len(L[j])):
-                    if co[j][k1][k2]==i:
-                        fout.write(" ".join([str(ni),str(j+1),str(k1+1),str(k2+1),"1"])+"\n")
-        for j in range(-Ls[-1]):
-            if co[-1][j]==i:
-                fout.write(" ".join([str(ni),str(Ln+1),str(j+1),str(j+1),"1"])+"\n")
-
-
-
-
+    ni=-1;nn=len(P_points)
+    for i in range(Sn):
+        fout.write("\n".join(FOUTL[i]))
+        fout.write("\n")
     fout.close()
+    print("=====file out end=====")
     #os.system("sdpa %s %s" % (f1,f2))
     os.system("csdp %s %s" % (f1,f2))
 
