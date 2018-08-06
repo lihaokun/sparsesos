@@ -1,0 +1,25 @@
+Copyright 1997-2017, Brian Borchers.  This copy of CSDP 6.2.0 is made
+available under the Common Public License.  See license-cpl.txt for
+the details of the CPL.
+
+This directory includes a binary version of CSDP.  This binary version
+makes use of LAPACK and BLAS routines from the OpenBLAS package.
+
+This version is compiled for 64-bit Linux systems.
+ 
+The directories are as follows:
+
+  doc                  documentation.
+
+  matlab               MATLAB routines for interfacing to CSDP.  
+
+  bin                  Executable version of csdp.
+
+Installation:  Copy csdp from the bin directory into a directory that
+is in your search path.  If you want to use the MATLAB interface, copy the
+contents of the MATLAB directory into a directory that is in your MATLAB
+search path.
+
+
+
+

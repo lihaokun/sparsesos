@@ -3,7 +3,7 @@ from sage.all import QQ,PolynomialRing
 import sparsesos
 
 def BXM(m):
-    y=PolynomialRing(QQ,3*m+2,"x").gens();
+    y=PolynomialRing(ZZ,3*m+2,"x").gens();
     x=[]
     n=3*m+2
     f1=0;f2=0;

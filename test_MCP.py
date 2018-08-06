@@ -34,7 +34,7 @@ def mcp():
 +8a2yb2e2+4a2yc2e2+48a2xd2e2+4a2yb2f2
 +8a2b2d2e2+8a2c2d4+16a2b2d4+4a2c2d2e2
 +4a2yc2f2+28a4y2+a4f4"""
-    xyz=PolynomialRing(QQ,8,"xyabcdef").gens()
+    xyz=PolynomialRing(ZZ,8,"xyabcdef").gens()
     x=xyz[0]
     y=xyz[1]
     a=xyz[2]

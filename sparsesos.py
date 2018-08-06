@@ -1,32 +1,31 @@
 from __future__ import print_function
 import sys
 import os
-from sage.all import QQ,PolynomialRing
+from sage.all import ZZ,QQ,PolynomialRing
 from sage.rings.polynomial.polydict import ETuple
 
 def strtoPolynomial(s):
     def is_good(x):
-        return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x in "()+-*^_"
+        return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x in "()+-*^_ \n"
     def is_num(x):
         return (x<="9" and x>="0")
     def is_var(x):
         return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x == "_"
     def is_op(x):
         return x in "+-*^()"
-    def skip(i):
-        while s[i]==" " and i<len(s):
-            i+1
-        return i;
     if type(s)!=str:
         print("str error.",s,"is not a str.")
         sys.exit(0)
     dct=dict()
+    s="".join(s.split())
     i=0;n=0;j=0
     L=[];
     for i in range(len(s)):
+        print("%0.2f%%\r" % ((i*100.0)/len(s)),end="")
         if not is_good(s[i]):
-            print("polynomial error. %s" % s[i])
-        if is_op(s[i]) or s[i]==" ":
+            print("polynomial error. %s,%d" % (s[i],i))
+            sys.exit(0)
+        if is_op(s[i]) or s[i] in " \n":
             if j<i:
                 x=s[j:i]
                 L.append(x)
@@ -45,7 +44,7 @@ def strtoPolynomial(s):
             dct[x]=n;
             n+=1;
     if n>0:
-        R=PolynomialRing(QQ,n,"x")
+        R=PolynomialRing(ZZ,n,"x")
         x=R.gens()
         for i in range(len(L)):
             if L[i] in dct:
@@ -53,14 +52,14 @@ def strtoPolynomial(s):
             if L[i]=="^":
                 L[i]="**"
     s1="".join(L);
-    #print(s1)
+    print("read...done.")
     try:
         f=eval(s1);
     except:
         print("polynomial error. sage can't build this polynomial.")
         sys.exit(0)
     else:
-        print(f)
+        print(len(f.dict()))
     if n==0:
         R=None
     return f,R
@@ -155,12 +154,18 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
         for i in range(n):
             L[i]=l1[i]+l2[i]
         return(ETuple(L))
-
+    def test(a,b):
+        for i in a:
+            if not(list_add(i,i) in b):
+                print(i)
+                return False
+        return True
     dct=f.dict()
     if newton_polytope:
         P1=f.newton_polytope()
         P2=(QQ(1)/2)*P1
         points=P2.integral_points()
+        print(test(points,dct))
         print(len(points))
     else:
         L=map(sum,list(dct))
@@ -194,7 +199,7 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
     Sn=0
     Ls=[]
     FOUTL=[]
-    P_points=[None]
+    P_points=[]
     for i in range(Ln):
         Ls.append(len(L[i]))
         for j in range(Ls[-1]):
@@ -225,10 +230,10 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
     #print("\n".join(map(str,L)))
     print("====file out begin=====")
     fout=open(f1,"w");
-    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,len(Ls)))
+    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points),len(Ls)))
     fout.write(" ".join(map(str,Ls))+"= bLOCKsTRUCT\n")
     c=[]
-    for i in P_points[1:]:
+    for i in P_points:
         #i1=ETuple(tuple(i))
         if i in dct:
             c.append(dct[i])
@@ -248,8 +253,12 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
 if __name__=="__main__":
     if len(sys.argv)<2:
         #help()
-        pass
+        file=raw_input("file_name=")
+        fin=open(file,"r");
+        s=fin.read()
+        fin.close()
     else:
         #print(sys.argv[1])
-        f,R=strtoPolynomial(sys.argv[1])
-        is_sparsesos(f)
+        s=sys.argv[1];
+    f,R=strtoPolynomial(s)
+    is_sparsesos(f)
