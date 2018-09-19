@@ -10,10 +10,10 @@ if __name__=="__main__":
     s=fin.read();
     fin.close()
     f,R=sparsesos.strtoPolynomial(s);
-    b=0;
-    if (b):
+    b=1;
+    if (b>0):
         sparsesos.is_sparsesos(f,newton_polytope=True)#com=sparsesos.com)
-    else:
+    if (b<0):
         dct=f.dict();
         l=list(dct)
         fout=open(j[i-1]+"_data.txt","w")

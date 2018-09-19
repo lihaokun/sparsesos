@@ -19,6 +19,7 @@ namespace polynomial {
       unsigned __deg;
       std::size_t __dim;
       var_pair* __times;
+      var_pair* __times_end;
       void monomial_init(var_pair* ts,std::size_t size,bool is_sorted,bool is_RD);
     public:
       monomial();
@@ -34,7 +35,11 @@ namespace polynomial {
       inline bool empty() const{
         return(this->__dim==0);
       }
-      monomial operator*(const monomial &m) const;
+      monomial operator+(const monomial &m) const;
+      inline monomial operator*(const monomial &m) const
+      {
+        return *this+m;
+      }
       monomial& operator=(const monomial &m);
       monomial& operator=(monomial &&m);
       //monomial& move(monomial &m);
@@ -65,7 +70,7 @@ namespace polynomial {
         return this->__times;
       }
       inline var_pair* end() const{
-        return this->__times+this->__dim;
+        return this->__times_end;
       }
       inline var_pair* at(std::size_t i) const{
         if (i>=this->size())

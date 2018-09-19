@@ -44,29 +44,52 @@ namespace sparsesos{
             //v1.push_back(mono);
         }
         fin.close();
-        //polynomial::atomic_polynomial<int> p1;
-        //for(long i=0;i<m;i++)
-        //{
-        //    dct.insert(std::move(v1[i]));
-        //}
         p=polynomial::atomic_polynomial<int>(v1,m,true,false,true);
-        //p1=p+p;
-        //std::cout<<p.str()<<std::endl<<(p+p).str()<<std::endl;
-        //p=std::move(p1);
         std::cout<<"read...done.          \n";
-        //std::set<polynomial::var> s;
-        //std::map<polynomial::var,bool> dct;
-        //polynomial::var kk[15]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,15};
-        //std::unordered_set<polynomial::var> s;
-        //std::cout<<p.dim();
-        /*
-        for(auto i=p.begin();i!=p.end();i++)
-        {
-            std::cout<<i->first.str()<<" "<<i->second<<"\n";
-        }
-        */
+
         return n;    
     }
+    void read_point_data(std::string &str_file,std::vector<polynomial::monomial> &point)
+    {
+        std::fstream fin(str_file,std::fstream::in);
+        long m=0;
+        int n=0;
+        fin>>m>>n;
+        std::cout<<m<<" "<<n<<std::endl;
+        int a=1;
+        //std::vector<polynomial::monomial_pair<int>> v1;
+        //polynomial::monomial_pair<int> *v1=new polynomial::monomial_pair<int>[m]; 
+        point.resize(m);
+        unsigned mono[n];
+        polynomial::var v[n];
+        std::map<polynomial::monomial,int> dct;
+        for(int i=0;i<n;++i)
+            v[i]=i;        
+        for(long i=0;i<m;i++)
+        {
+            //std::cout<<i<<"/"<<m;//<<std::endl;
+            if (i%1000==0)
+                printf("read...%0.2f%%\r",i*100.0/m);
+            for(int j=0;j<n;j++)
+                //fin>>a;
+                fin>>mono[j];
+                //mono[j]=1;
+            //fin>>a;
+            //dct[mono];
+            //std::cout<<" "<<a<<" "<<n<<std::endl;
+            //dct.insert(std::make_pair(polynomial::monomial(v,mono,n),std::move(a)));
+            point[i]=polynomial::monomial(v,mono,n);
+        }
+        fin.close();
+        std::cout<<"read...done.          \n";
+        /*
+        for(auto &i:point)
+        {
+            std::cout<<i.str()<<std::endl;
+        }
+        */
+    }
+  
 
 
     inline bool monomial_is_even(const polynomial::monomial &v)
@@ -130,9 +153,10 @@ namespace sparsesos{
                 if (it->second)
                 {
                     std::cout<<"error "<<it->first.str()<<std::endl;
+                    std::cout<<"check...done. :False.\n";
                     return false;
                 }
-            printf("check...done.    \n");
+            std::cout<<"check...done. :Success.\n";
         }
         return true;
     }
@@ -204,40 +228,7 @@ namespace sparsesos{
             }
         //std::cout<<G[110].size()<<std::endl;
     }
-/*    int MCS_M_dfs
-    (int min,polynomial::var point,polynomial::var end,std::vector<std::unordered_set<polynomial::var>> & G,std::vector<int> &w,std::vector<int> &number,std::unordered_set<polynomial::var> &S){
-        if (S.find(point)!=S.end())
-            return 0;
-        else
-            S.insert(point);
-        int deep;
-        //if (end==510)
-        //std::cout<<point<<"->"<<end<<":"<<S.size()<<" ";
-        for(auto &i:G[point]){
-            if (i==end)
-                return 1;
-            if (w[i]<min && number[i]==0 && (deep=MCS_M_dfs(min,i,end,G,w,number,S))!=0)
-                return deep+1;
-        }
-        return 0;
-    }
-                    S1.clear();
-                //std::cout<<i<<"-"<<point<<std::endl;
-                for(auto &j:remain){
-                    //if (i==107)
-                    //std::cout<<point<<":"<<j<<" ";
-                    S.clear();
-                    if (deep=MCS_M_dfs(w[j],j,point,G,w,number,S)){
-                        S1.push_back(j);
-                    }
-                }
-                for(auto &j:S1){
-                    ++w[j];
-                    G[j].insert(point);
-                    G[point].insert(j);
-                }
-                
-*/
+
     bool MCS_M_CHECK
     (std::list<polynomial::var>::iterator i,std::list<polynomial::var> &alpha,std::vector<int> &number,std::vector<std::unordered_set<polynomial::var>> &G)
     {
@@ -272,44 +263,56 @@ namespace sparsesos{
         int deep;
         //std::unordered_set<polynomial::var> S;
         std::vector<int> S1(points.size());
+        std::vector<bool> S2(points.size());
+        
         int n=0;int n1=0;
         bool B=true;
         for(auto & v:V)
         {
             ++n;
             get_graph(p,points,v,G);
-            std::cout<<"block "<<n<<"....\n";
+            //std::cout<<"block "<<n<<"....";
             alpha.clear();
             remain.clear(); 
             for(auto &i:v)
                 remain.insert(i);
             for(polynomial::var i=v.size();i>0;--i){
                 if (i%10==0)
-                    printf("%0.2f%%\r",(v.size()-i)*100.0/v.size());
+                    printf("block %d..%0.2f%%\r",n,(v.size()-i)*100.0/v.size());
                 point = *(remain.begin());
                 for(auto &j:remain)
                     if (w[point]<w[j])
                         point=j;
                 remain.erase(point);
                 
-
                 for(auto &j:remain)
-                    if (G[point].find(j)!=G[point].end())
+                    if (G[point].find(j)!=G[point].end()){
                         S1[j]=w[j];
-                    else
+                        S2[j]=true;
+                    }
+                    else{
                         S1[j]=-1;
+                        S2[j]=false;
+                    }
+                B=true;
                 while (B){
                     B=false;
                     for(auto &j:remain)
                         if (S1[j]>=0)
                             for(auto &k:G[j])
-                                if (remain.find(k)!=remain.end() && (S1[k]==-1 || (S1[j]<=S1[k] && S1[k]>w[k]))){
+                                if (remain.find(k)!=remain.end() && (S1[k]==-1 || (!S2[k] && S1[j]<S1[k]))){
                                     B=true;
-                                    S1[k]=std::max(S1[j],w[k]);
+                                    if (S1[j]<w[k]){
+                                        S2[k]=true;
+                                        S1[k]=w[k];
+                                    }
+                                    else
+                                        S1[k]=S1[j];
+                                    //S1[k]=std::max(S1[j],w[k]);
                                 }
                 }
                 for(auto &j:remain)
-                    if (S1[j]==w[j]){
+                    if (S2[j]){
                         ++w[j];
                         G[j].insert(point);
                         G[point].insert(j);
@@ -319,6 +322,7 @@ namespace sparsesos{
                 number[point]=i;
                 alpha.push_front(point);
             }
+            std::cout<<"done.                        \r";
             n1=L.size();
             for(auto i=alpha.begin();i!=alpha.end();++i)
             {
@@ -329,24 +333,35 @@ namespace sparsesos{
                             L.back().push_back(j);
                     if (L.back().size()==0)
                         std::cout<<*i<<" "<<points[*i].str()<<" "<<(points[*i]*points[*i]).str()<<" "<< monomial_is_even(points[*i]*points[*i])<<" error \n";
+                    //std::cout<<L.back().size()<<":";
+                    /*B=true;
+                    for(auto &j:L.back())
+                        for(auto &k:L.back())
+                            if (G[j].find(k)==G[j].end()){
+                                B=false;
+                                break;
+                            }
+                    std::cout<<B<<" ";*/
                 }
+
             }
-            for(int i=n1;i<L.size();++i)
-                std::cout<<L[i].size()<<" ";
-            std::cout<<std::endl;
-            std::cout<<"done.\n";
+            //std::cout<<"\n";
             
         }
+        std::cout<<"MCS_M ...done.\n";
     }
     void output
-    (std::string &str_file,polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L)
+    (std::string &str_file,polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,bool min_bool)
     {
         polynomial::var i;
         std::ostringstream out;
         std::map<polynomial::monomial,std::size_t> dct;
         std::vector<int> coeff;
         polynomial::monomial mono;
+        polynomial::monomial mono_zero;
+
         auto it=dct.begin();
+        
         std::size_t size=L.size();
         while (size>0 && L[size-1].size()==1)
             --size;
@@ -355,32 +370,44 @@ namespace sparsesos{
             for(std::size_t i=0;i!=L[l].size();++i )
                 for(std::size_t j=i;j!=L[l].size();++j){
                     mono=points[L[l][i]]*points[L[l][j]];
-                    it=dct.find(mono);
-                    if (it==dct.end())
-                    {    
-                        ++n;
-                        dct[mono]=n;
-                        coeff.push_back(p[mono]);
-                        //auto it=p.find(mono);
-                        //if (it!=p.end())
-                        //    std::cout<<mono.str()<<" "<<it->first.str()<<std::endl;
-                        out<<n<<" "<<l+1<<" "<<i+1<<" "<<j+1<<" 1\n";
+                    if(!min_bool || mono!=mono_zero){
+                        it=dct.find(mono);
+                        if (it==dct.end())
+                        {    
+                            ++n;
+                            dct[mono]=n;
+                            coeff.push_back(p[mono]);
+                            //auto it=p.find(mono);
+                            //if (it!=p.end())
+                            //    std::cout<<mono.str()<<" "<<it->first.str()<<std::endl;
+                            out<<n<<" "<<l+1<<" "<<i+1<<" "<<j+1<<" 1\n";
+                        }
+                        else
+                            out<<it->second<<" "<<l+1<<" "<<i+1<<" "<<j+1<<" 1\n";
                     }
                     else
-                        out<<it->second<<" "<<l+1<<" "<<i+1<<" "<<j+1<<" 1\n";                        
+                        if(min_bool)
+                            out<<0<<" "<<l+1<<" "<<i+1<<" "<<j+1<<" -1\n";                        
                 }
         for(std::size_t l=size;l<L.size();++l){
             mono=points[L[l][0]]*points[L[l][0]];
-            it=dct.find(mono);
-            if (it==dct.end())
-            {    
-                ++n;
-                dct[mono]=n;
-                out<<n<<" "<<size+1<<" "<<l-size+1<<" "<<l-size+1<<" 1\n";
+            if(!min_bool || mono!=mono_zero){
+                    
+                it=dct.find(mono);
+                if (it==dct.end())
+                {    
+                    ++n;
+                    dct[mono]=n;
+                    coeff.push_back(p[mono]);
+                            
+                    out<<n<<" "<<size+1<<" "<<l-size+1<<" "<<l-size+1<<" 1\n";
+                }
+                else
+                    out<<it->second<<" "<<size+1<<" "<<l-size+1<<" "<<l-size+1<<" 1\n";
             }
             else
-                out<<it->second<<" "<<size+1<<" "<<l-size+1<<" "<<l-size+1<<" 1\n";
-            
+                if (min_bool)
+                    out<<0<<" "<<size+1<<" "<<l-size+1<<" "<<l-size+1<<" -1\n";    
         }
         
         std::fstream fout(str_file,std::fstream::out);
@@ -403,6 +430,7 @@ namespace sparsesos{
             fout<<*i;
         }
         fout<<std::endl;
+        //four<<
         fout<<out.str();
         fout.close();
     }

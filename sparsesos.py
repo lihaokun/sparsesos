@@ -165,7 +165,7 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
         P1=f.newton_polytope()
         P2=(QQ(1)/2)*P1
         points=P2.integral_points()
-        print(test(points,dct))
+        #print(test(points,dct))
         print(len(points))
     else:
         L=map(sum,list(dct))
@@ -198,7 +198,8 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
     S=dict()
     Sn=0
     Ls=[]
-    FOUTL=[]
+    #FOUTL=[]
+    FOUTLS=[];
     P_points=[]
     for i in range(Ln):
         Ls.append(len(L[i]))
@@ -206,24 +207,25 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
             for k in range(j,Ls[-1]):
                 lk=list_add(points[L[i][j]],points[L[i][k]])
                 if lk in S:
-                    FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    FOUTLS.append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    #FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
                 else:
                     S[lk]=Sn
                     P_points.append(lk)
-                    FOUTL.append([])
-                    FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    #FOUTL.append([])
+                    FOUTLS.append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
                     Sn+=1
     if Ln<len(L):
         Ls.append(Ln-len(L))
         for i in range(Ln,len(L)):
             lk=list_add(points[L[i][0]],points[L[i][0]])
             if lk in S:
-                FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
+                FOUTLS.append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
             else:
                 S[lk]=Sn
                 P_points.append(lk)
-                FOUTL.append([])
-                FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
+                #FOUTL.append([])
+                FOUTLS.append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
                 Sn+=1
 
     print(" ".join(map(str,Ls)))
@@ -241,9 +243,9 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
             c.append(0)
     fout.write(",".join(map(str,c))+"\n")
     ni=-1;nn=len(P_points)
-    for i in range(Sn):
-        fout.write("\n".join(FOUTL[i]))
-        fout.write("\n")
+    #for i in range(Sn):
+    fout.write("\n".join(FOUTLS))
+    fout.write("\n")
     fout.close()
     print("=====file out end=====")
     #os.system("sdpa %s %s" % (f1,f2))

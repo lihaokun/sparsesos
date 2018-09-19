@@ -1,5 +1,5 @@
 import sys
-from sage.all import QQ,PolynomialRing
+from sage.all import ZZ,PolynomialRing
 import sparsesos
 
 def BXM(m):
@@ -26,4 +26,16 @@ if __name__=="__main__":
         #print(sys.argv[1])
         m=sys.argv[1]
     f=BXM(int(m))
-    sparsesos.is_sparsesos(f,newton_polytope=False)
+    b=-1;
+    if (b>0):
+        sparsesos.is_sparsesos(f,newton_polytope=False)
+    if (b<0):
+        dct=f.dict();
+        l=list(dct)
+        fout=open("BXM_"+m+"_data.txt","w")
+        fout.write("%d %d\n" % (len(l),len(l[0])))
+        for i in f.dict():
+            fout.write(" ".join(map(str,i)))
+            fout.write(" %d\n" % dct[i])
+        fout.close()
+
