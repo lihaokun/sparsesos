@@ -6,11 +6,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctime>
+#include "SOS_torational.hpp"
 //#include "polynomial.h"
 int main(int argc, char const *argv[])
 {
         
-    std::string s;
+    std::string s,sout;
     int i1,i2;
     int argc_int=1;
     if (argc>1 && argv[0]!="-"){
@@ -44,7 +45,7 @@ int main(int argc, char const *argv[])
             point_com_s=argv[++argc_int];
         }
         else{
-            std::cout<<argv[argc_int]<<" is no diff.\n";
+            std::cout<<argv[argc_int]<<" is no def.\n";
             return 0;
         }
         ++argc_int;
@@ -72,12 +73,13 @@ int main(int argc, char const *argv[])
     clock_t t;
     //time(&t);
     t=clock();
-    
+    s="data.dat-s";
+    sout="data.res";
+        
     if (B==0){
         L.push_back(std::vector<polynomial::var>(points.size()));
         for(polynomial::var i=0;i<points.size();++i)
             L[0][i]=i;
-        s="data.dat-s";
         sparsesos::output(s,p,points,L,min_bool);
     }
     if (B>=1){
@@ -92,7 +94,7 @@ int main(int argc, char const *argv[])
                 i2=1;
             }
         std::cout<<i2<<"*"<<i1<<std::endl; 
-        s="data.dat-s";
+        //s="data.dat-s";
         if(B==1)
             sparsesos::output(s,p,points,L,min_bool);
     }
@@ -118,7 +120,7 @@ int main(int argc, char const *argv[])
         sparsesos::output(s,p,points,L1,min_bool);    
 
     }
-    s="./csdp/bin/csdp "+s;
+    s="./csdp/bin/csdp "+s+" "+sout;
     //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
     printf("(time:%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     std::cout<<"----SDP solver------\n";

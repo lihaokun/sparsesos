@@ -5,7 +5,12 @@
 #include <boost/numeric/ublas/vector.hpp>
 #include <boost/numeric/ublas/lu.hpp>
 #include <boost/rational.hpp>
+#include <boost/multiprecision/gmp.hpp>
+#include <boost/multiprecision/number.hpp>
 #include <cmath>
+#include <string>
+#include <fstream>
+#include <iostream>
 //#include <boost/numeric/ublas/operation_blocked.hpp>
 
 namespace sparsesos{
@@ -23,6 +28,7 @@ namespace sparsesos{
     using boost::numeric::ublas::prod;
     using boost::numeric::ublas::norm_frobenius;
     
+
      /* Matrix inversion routine.
     Uses lu_factorize and lu_substitute in uBLAS to invert a matrix */
     template<class T>
@@ -63,6 +69,7 @@ namespace sparsesos{
                 v[i]=A(j,i)*A(i,i);
                 A(j,j)-=A(j,i)*v[i];
             }
+            //需要进一步优化
             for(i=j+1;i<n;++i){
                 for(k=0;k<j;++k)
                     A(i,j)-=A(i,k)*v[k];
@@ -75,13 +82,6 @@ namespace sparsesos{
     inline void float_to_rational(
         const Tf &Mf,boost::rational<Tz> &Mq, const Tz &den )
     {
-        /*
-        if (d==0)
-        {
-            std::cout<<"rationafloat_to_rational denominator 0 error.\n";
-            exit(0);
-        }
-        */
        Mq=boost::rational<Tz>(Tz(den*Mf),den);
     }
     
@@ -96,10 +96,28 @@ namespace sparsesos{
             for(int j=0;j<Mq.size2();++j)
                 float_to_rational(Mf(i,j),Mq(i,j),den);
     }
-    template <class Tz,class Tf>
-    inline void rational_to_float(const boost::rational<Tz> &q,Tf &f)
+    template <class Tf>
+    inline void float_to_rational(
+        const matrix<Tf> &Mf,matrix<boost::multiprecision::mpq_rational> &Mq, const Tf &dist)
+    {
+        boost::multiprecision::mpz_int den(Tf(Mf.size1())/dist);
+        ++den;
+        //std::cout<<dist<<" "<<double(Mq.size1())<<std::endl;
+        Mq.resize(Mf.size1(),Mf.size2());
+        for(int i=0;i<Mq.size1();++i)
+            for(int j=0;j<Mq.size2();++j)
+                Mq(i,j)=boost::multiprecision::mpq_rational(boost::multiprecision::mpz_int(Mf(i,j)*den),den);
+    }
+    template <class Tq,class Tf>
+    inline void rational_to_float(const Tq &q,Tf &f)
     {
         f=Tf(q.numerator())/Tf(q.denominator());   
+    }
+    template <class Tf>
+    inline void rational_to_float(const boost::multiprecision::mpq_rational &q,Tf &f)
+    {
+        
+        f=q.convert_to<Tf>();   
     }
     template <class Tq,class Tf>
     inline matrix<Tf> rational_to_float(const matrix<Tq> &Mq)
@@ -110,10 +128,10 @@ namespace sparsesos{
                 rational_to_float(Mq(i,j),Mf(i,j));//=Tf(.numeric())/Tf(Mq(i,j).denominator());
         return Mf;
     }
-    
     template <class Tq,class Tf>
     matrix<Tq> SOS_torational(const matrix<Tq> & A,const matrix<Tq> & b,matrix<Tf> & M)
     {
+        std::cout<<"start."<<std::endl;
         int n=M.size1();
         identity_matrix<Tq> I(A.size2(),A.size2());
         matrix<Tq> A_T=trans(A);
@@ -147,8 +165,10 @@ namespace sparsesos{
             {
                 //matrix<Tq> Q=M.torational(int(float(n)/sqrt(l2*l2-l1*l1))+1);
                 matrix<Tq> Q;
-                float_to_rational(M,Q,sqrt(l2*l2-l1*l1));
-                std::cout<<norm_frobenius(M-rational_to_float<Tq,Tf>(Q))<<std::endl;
+                l1=sqrt(l2*l2-l1*l1);
+                float_to_rational(M,Q,l1);
+                //sqrt(l2*l2-l1*l1));
+                //std::cout<<norm_frobenius(M-rational_to_float<Tq,Tf>(Q))<<std::endl;
                 
                 Q.resize(n*n,1,false);
                 matrix<Tq> Q_=b_+prod(A_I,Q);
@@ -160,13 +180,82 @@ namespace sparsesos{
         else
             {
                 
-                std::cout<<"SOS_torational l2="<<l2<<",l1="<<l1<<" error.\n";
+                std::cout<<"SOS_torational min_eigen="<<l2<<",norm_frobenius="<<l1<<" error.\n";
                 exit(0);
         }
         
     }
-    
-    
+    template <class Tq,class Tf>
+    void csdp_file_read(std::string sdp_file,std::string res_file,matrix<Tq> &A,matrix<Tq> &b,matrix<Tf>&f)
+    {
+        std::fstream sdp(sdp_file,std::fstream::in);
+        std::fstream res(res_file,std::fstream::in);
+        std::size_t na1,nblock;
+        std::string line;
+        sdp>>na1;//std::cout<<na1<<std::endl;
+        getline(sdp,line);
+        sdp>>nblock;//std::cout<<nblock<<std::endl;
+        getline(sdp,line);
+        std::vector<long> bl(nblock);
+        std::vector<long> sbl(nblock+1);
+        //sdp>>bl[0];
+        //std::cout<<bl[0]<<std::endl;
+        sbl[0]=0;
+        for(int i=0;i<nblock;++i)
+        {
+            sdp>>bl[i];
+            if (bl[i]<0)
+                bl[i]=-bl[i];
+            sbl[i+1]=bl[i]+sbl[i];
+            //std::cout<<bl[i]<<std::endl;
+        }
+        getline(sdp,line);
+        //getline(sdp,line);
+        char c;
+        long l1,l2,l3,l4,l5;
+        b=matrix<Tq>(na1,1);
+        for(int i=0;i<na1;++i)
+        {
+            if (i!=0)
+            {
+                sdp>>c;
+                //std::cout<<c;
+            }
+            sdp>>l1;
+            //std::cout<<ll;
+            b(i,0)=l1;
+            
+        }
+        A=matrix<Tq>(na1,sbl[nblock]*sbl[nblock]);
+        while(sdp>>l1>>l2>>l3>>l4>>l5)
+        {
+            //std::cout<<l1<<" "<<l2<<" "<<l3<<" "<<l4<<" "<<l5<<std::endl;
+            if (l1>0)
+            {
+                A(l1-1,(sbl[l2-1]+l3-1)*sbl[nblock]+sbl[l2-1]+l4-1)=l5;
+                A(l1-1,(sbl[l2-1]+l4-1)*sbl[nblock]+sbl[l2-1]+l3-1)=l5;
+            }
+
+        }
+        sdp.close();
+        Tf lf;
+        getline(res,line);
+        f=matrix<Tf>(sbl[nblock],sbl[nblock]);
+        while(res>>l1>>l2>>l3>>l4>>lf)
+        {
+            if (l1==2)
+            {
+                f(sbl[l2-1]+l3-1,sbl[l2-1]+l4-1)=lf;
+                f(sbl[l2-1]+l4-1,sbl[l2-1]+l3-1)=lf;
+            }
+            //std::cout<<l1<<" "<<l2<<" "<<l3<<" "<<l4<<" "<<lf<<std::endl;
+        }  
+
+        res.close();
+        
+            
+        
+    }
 
     
 }

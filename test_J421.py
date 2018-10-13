@@ -70,7 +70,7 @@ if __name__=="__main__":
     i=int(input())
     j=[j421,J521]
     f=j[i-1]()
-    b=1;
+    b=0;
     if (b):
         sparsesos.is_sparsesos(f,newton_polytope=True)#com=sparsesos.com)
     else:
