@@ -59,13 +59,31 @@ int main(int argc, char const *argv[])
     //sparsesos::monomial_map dct;
     polynomial::atomic_polynomial<int> p;
     sparsesos::read_data(s,p);
+    //std::cout<<p.str()<<std::endl;
     std::cout<<"deg:"<<p.deg()<<std::endl;
     std::vector<polynomial::monomial> points;
     if (point_com==0){
         sparsesos::get_half(p,points,true);
     }
     else{
+        //std::vector<polynomial::monomial> points_1;
+        //sparsesos::get_half(p,points_1,true);
         sparsesos::read_point_data(point_com_s,points);
+        //std::cout<<points_1.size()<<" "<<points.size()<<std::endl;
+        //std::sort(points.begin(),points.end());
+        //std::sort(points_1.begin(),points_1.end());
+        for (int i=0;i<points.size();++i)
+        {
+            if (i!=0)
+                std::cout<<",";
+            std::cout<<points[i].str();
+            
+        }
+        std::cout<<std::endl;
+        //{
+        //    if (points[i]!=points_1[i])
+        //        std::cout<<"######################"<<i<<std::endl; 
+        //}
     }
     std::cout<<  points.size()<<std::endl;
     std::vector<std::vector<polynomial::var>> L;
@@ -85,7 +103,7 @@ int main(int argc, char const *argv[])
     if (B>=1){
         sparsesos::com_connect(p,points,L);
         i1=L.begin()->size();i2=0;
-        for(auto &i:L)
+        for(auto &i:L){
             if (i.size()==i1)
                 ++i2;
             else{
@@ -93,7 +111,14 @@ int main(int argc, char const *argv[])
                 i1=i.size();
                 i2=1;
             }
+        }
         std::cout<<i2<<"*"<<i1<<std::endl; 
+        /*
+        for(auto &i:L)
+            for(auto &j:i)
+                std::cout<<points[j].str()<<",";
+        std::cout<<std::endl;
+        */
         //s="data.dat-s";
         if(B==1)
             sparsesos::output(s,p,points,L,min_bool);

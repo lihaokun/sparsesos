@@ -39,6 +39,8 @@ if __name__=="__main__":
     #    f=LL(i)
     #    sparsesos.is_sparsesos(f)
     f,g=Vor();
+    print(f);
+    #print(g)
     b=False
     S="vor"
     if b:

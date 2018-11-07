@@ -97,6 +97,7 @@ def mcp(n):
 if __name__=="__main__":
     n=int(input())
     f=mcp(n)
+    print(f)
     B=False;
     if (B):
         sparsesos.is_sparsesos(f)

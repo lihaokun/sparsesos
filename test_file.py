@@ -13,6 +13,7 @@ if __name__=="__main__":
     if (b>0):
         sparsesos.is_sparsesos(f,newton_polytope=True)#com=sparsesos.com)
     if (b<0):
+	    print("file output...")
         dct=f.dict();
         l=list(dct)
         fout=open(S+"_data.txt","w")
@@ -21,10 +22,14 @@ if __name__=="__main__":
             fout.write(" ".join(map(str,i)))
             fout.write(" %d\n" % dct[i])
         fout.close()
-        fout=open(S+"_data_2.txt","w")
-        points=((QQ(1)/2)*f.newton_polytope()).integral_points()
-        fout.write("%d %d\n" % (len(points),len(points[0])))
-        for i in points:
-            fout.write(" ".join(map(str,i)))
-            fout.write("\n")
-        fout.close()
+	    print("done.")
+        sis=raw_input("Is output polytope?(y)")
+	if (sis=="y"):
+
+		fout=open(S+"_data_2.txt","w")
+		points=((QQ(1)/2)*f.newton_polytope()).integral_points()
+		fout.write("%d %d\n" % (len(points),len(points[0])))
+		for i in points:
+		    fout.write(" ".join(map(str,i)))
+		    fout.write("\n")
+		fout.close()

@@ -185,6 +185,74 @@ namespace sparsesos{
         }
         
     }
+    inline boost::rational<long> float_to_rational(double f,long max_den)
+    {
+        long sign=1;
+        if (f<0)
+        {
+            sign=-1;
+            f=-f;
+        }
+        double ff=f;
+        long a,b,c,d;
+        long fa,fa1,a1,b1,c1,d1,fn,fd;
+        double f1=1;
+        a1=0;b1=1;c1=1;d1=0;
+        a1=f;f=f-a1;
+        if (abs(f)<0.000001)
+            return boost::rational<long>(sign*a1);
+        f=f1/f;
+        while (true)
+        {
+            fa=f;
+            f=f-fa;
+            
+            fn=fa*a1+b1;
+            fd=fa*c1+d1;
+            if (fd>max_den)
+                break;
+            fa1=fa;
+            //std::cout<<fa<<" ";
+            a=a1;b=b1;c=c1;d=d1;
+            a1=fn;c1=fd;b1=a;d1=c;
+            if (abs(f)<0.000001)
+                break;
+            f=f1/f;
+            //v.push_back(a);
+        }
+        f1=abs(ff-double(a1)/c1);
+        fa=fa1;
+        for(long i=(fa1+1)/2;i<fa1;++i){
+            fn=i*a+b;
+            fd=i*c+d;
+            if  (abs(ff-double(fn)/fd)<f1)
+            {
+                a1=fn;c1=fd;
+                fa=i;
+                f1=abs(ff-double(fn)/fd);
+            }   
+        }
+        //std::cout<<"|"<<fa<<" ";
+        //for (auto &i:v)
+        //    std::cout<<i<<" ";
+        //if (v.empty())
+        //    return 0;
+        //else
+        //{
+            //auto ptr=v.rbegin();
+            //boost::rational<long> ans=*(ptr++);
+            //for(;ptr!=v.rend();ans=1/ans+*(ptr++));
+            //return ans*sign;
+        //}
+        return boost::rational<long>(sign*a1,c1);
+    }
+    inline void float_to_rational(const matrix<double> & mf,matrix<boost::rational<long>> & mq,long max_den)
+    {
+        mq.resize(mf.size1(),mf.size2());
+        for(int i=0;i<mf.size1();++i)
+            for(int j=0;j<mf.size2();++j)
+                mq(i,j)=float_to_rational(mf(i,j),max_den);
+    }
     template <class Tq,class Tf>
     void csdp_file_read(std::string sdp_file,std::string res_file,matrix<Tq> &A,matrix<Tq> &b,matrix<Tf>&f)
     {
@@ -255,6 +323,27 @@ namespace sparsesos{
         
             
         
+    }
+    template<class T>
+    void matrix_print(const matrix<T> & f)
+    {
+        std::cout<<"[";
+        for(int i=0;i<f.size1();++i)
+        {
+            
+            for(int j=0;j<f.size2();++j)
+            {
+                if (j!=0)
+                {
+                    std::cout<<",";
+                }
+                std::cout<<f(i,j);
+                
+            }
+            if (i!=f.size1()-1)
+                std::cout<<";\n";
+        }
+        std::cout<<"]\n";
     }
 
     

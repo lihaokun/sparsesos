@@ -16,7 +16,11 @@ namespace sparsesos{
         std::fstream fin(str_file,std::fstream::in);
         long m=0;
         int n=0;
-        fin>>m>>n;
+        if (!(fin>>m>>n))
+        {
+            std::cout<<"read "<<str_file<<" failed.";
+            exit(0);
+        }
         std::cout<<m<<" "<<n<<std::endl;
         int a=1;
         //std::vector<polynomial::monomial_pair<int>> v1;
@@ -33,9 +37,17 @@ namespace sparsesos{
                 printf("read...%0.2f%%\r",i*100.0/m);
             for(int j=0;j<n;j++)
                 //fin>>a;
-                fin>>mono[j];
+                if (!(fin>>mono[j]))
+                {
+                    std::cout<<"read "<<str_file<<" failed.";
+                    exit(0); 
+                }
                 //mono[j]=1;
-            fin>>a;
+            if (!(fin>>a))
+            {
+                    std::cout<<"read "<<str_file<<" failed.";
+                    exit(0); 
+            }
             //dct[mono];
             //std::cout<<" "<<a<<" "<<n<<std::endl;
             //dct.insert(std::make_pair(polynomial::monomial(v,mono,n),std::move(a)));
@@ -54,7 +66,11 @@ namespace sparsesos{
         std::fstream fin(str_file,std::fstream::in);
         long m=0;
         int n=0;
-        fin>>m>>n;
+        if (!(fin>>m>>n))
+        {
+            std::cout<<"read "<<str_file<<" failed.";
+            exit(0);
+        }
         std::cout<<m<<" "<<n<<std::endl;
         int a=1;
         //std::vector<polynomial::monomial_pair<int>> v1;
@@ -72,7 +88,11 @@ namespace sparsesos{
                 printf("read...%0.2f%%\r",i*100.0/m);
             for(int j=0;j<n;j++)
                 //fin>>a;
-                fin>>mono[j];
+                if (!(fin>>mono[j]))
+                {
+                    std::cout<<"read "<<str_file<<" failed.";
+                    exit(0); 
+                }
                 //mono[j]=1;
             //fin>>a;
             //dct[mono];
@@ -377,6 +397,8 @@ namespace sparsesos{
                             ++n;
                             dct[mono]=n;
                             coeff.push_back(p[mono]);
+                            //std::cout<<mono.str()<<std::endl;
+                    
                             //auto it=p.find(mono);
                             //if (it!=p.end())
                             //    std::cout<<mono.str()<<" "<<it->first.str()<<std::endl;
@@ -399,7 +421,7 @@ namespace sparsesos{
                     ++n;
                     dct[mono]=n;
                     coeff.push_back(p[mono]);
-                            
+                    //std::cout<<mono.str()<<std::endl;
                     out<<n<<" "<<size+1<<" "<<l-size+1<<" "<<l-size+1<<" 1\n";
                 }
                 else
