@@ -9,13 +9,15 @@ def BXM(m):
     f1=0;f2=0;
     for i in range(n):
         x.append(y[i]**2)
-    for i in range(3*(m+1)):
+    for i in range(3*(m)+1):
         x.append(x[i])
     for i in range(n):
         f1+=x[i]
-        for j in range(m+1):
+        for j in range(1,m+1):
             f2+=x[i]*x[i+3*j+1]
     f=(f1**2-2*f2)*f1;
+    print(f1)
+    print(f2)
     print(len(f.dict()))
     return(f)
 

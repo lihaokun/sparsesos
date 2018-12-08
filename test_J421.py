@@ -74,6 +74,9 @@ if __name__=="__main__":
     if (b):
         sparsesos.is_sparsesos(f,newton_polytope=True)#com=sparsesos.com)
     else:
+        #fout=open("j521.txt","w")
+        #fout.write(str(f))
+        #fout.close()
         dct=f.dict();
         l=list(dct)
         fout=open(["j421","j521"][i-1]+"_data.txt","w")
