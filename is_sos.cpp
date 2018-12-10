@@ -72,14 +72,14 @@ int main(int argc, char const *argv[])
         //std::cout<<points_1.size()<<" "<<points.size()<<std::endl;
         //std::sort(points.begin(),points.end());
         //std::sort(points_1.begin(),points_1.end());
-        for (int i=0;i<points.size();++i)
-        {
-            if (i!=0)
-                std::cout<<",";
-            std::cout<<points[i].str();
+        // for (int i=0;i<points.size();++i)
+        // {
+        //     if (i!=0)
+        //         std::cout<<",";
+        //     std::cout<<points[i].str();
             
-        }
-        std::cout<<std::endl;
+        // }
+        // std::cout<<std::endl;
         //{
         //    if (points[i]!=points_1[i])
         //        std::cout<<"######################"<<i<<std::endl; 
