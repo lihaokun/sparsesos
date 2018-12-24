@@ -6,7 +6,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctime>
-#include "SOS_torational.hpp"
+//#include "SOS_torational.hpp"
+#include "sos.hpp"
 //#include "polynomial.h"
 int main(int argc, char const *argv[])
 {
@@ -62,35 +63,20 @@ int main(int argc, char const *argv[])
     //std::cout<<p.str()<<std::endl;
     std::cout<<"deg:"<<p.deg()<<std::endl;
     std::vector<polynomial::monomial> points;
+    clock_t t;
+    //time(&t);
+    t=clock();
     if (point_com==0){
-        sparsesos::get_half(p,points,true);
+        //sparsesos::get_half(p,points,true);
+        points=is_sos::sos_support_mosek(p);
     }
     else{
-        //std::vector<polynomial::monomial> points_1;
-        //sparsesos::get_half(p,points_1,true);
         sparsesos::read_point_data(point_com_s,points);
-        //std::cout<<points_1.size()<<" "<<points.size()<<std::endl;
-        //std::sort(points.begin(),points.end());
-        //std::sort(points_1.begin(),points_1.end());
-        // for (int i=0;i<points.size();++i)
-        // {
-        //     if (i!=0)
-        //         std::cout<<",";
-        //     std::cout<<points[i].str();
-            
-        // }
-        // std::cout<<std::endl;
-        //{
-        //    if (points[i]!=points_1[i])
-        //        std::cout<<"######################"<<i<<std::endl; 
-        //}
     }
     std::cout<<  points.size()<<std::endl;
     std::vector<std::vector<polynomial::var>> L;
     //time_t t;
-    clock_t t;
-    //time(&t);
-    t=clock();
+    
     s="data.dat-s";
     sout="data.res";
         
