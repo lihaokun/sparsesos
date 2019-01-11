@@ -165,11 +165,11 @@ namespace is_sos{
         M->constraint("c",Expr::mul(A,X),Domain::lessThan(0,n));
         auto c1=M->constraint("c1",Expr::dot(Co,X),Domain::greaterThan(0.0));
         //auto y=Expr::dot(C,X);
-
+        cout<<"Initially...\n";
         while (b){
             ++num_mono;
-            if ((num_mono % 100)==0)
-                std::cout<<"Initially "<<num_mono<<" monomials.\r";
+            //if ((num_mono % 100)==0)
+            //    std::cout<<"Initially "<<num_mono<<" monomials.\r";
             for(n1=0;n1<m;++n1)
                 if (num[n1]>=0)
                 {
@@ -187,20 +187,24 @@ namespace is_sos{
             M->objective("obj", ObjectiveSense::Maximize, Expr::dot(Co,X));
             M->solve();
 
-            if (M->getPrimalSolutionStatus(SolutionType::Basic)==SolutionStatus::Optimal && M->primalObjValue()>=-1e-5)
+            if (M->getPrimalSolutionStatus()==SolutionStatus::Optimal && M->primalObjValue()>=-1e-5)
+            {
+                monos.push_back(monomial(mono,m));
+                //std::cout<<monos.back().str()<<"\n";
+            }
+            else
+                if (M->getPrimalSolutionStatus()==SolutionStatus::Undefined)
                 {
                     monos.push_back(monomial(mono,m));
-                }
-            if (M->getPrimalSolutionStatus(SolutionType::Basic)==SolutionStatus::Undefined)
-                {
-                    monos.push_back(monomial(mono,m));
+                    //std::cout<<monos.back().str()<<"\n";
                 }
             b=num_next(num,snum,deg_maxv,deg_minv,degmax,degmin);
         } 
         std::cout<<"Initially "<<num_mono<<" monomials.\n";
         std::cout<<"Keeping "<<monos.size()<<" monomials.\n";
-        return monos;
         M->dispose();
+        return monos;
+        
     }
 }
 // int main(int argc, char const *argv[])

@@ -18,9 +18,9 @@ def main(S):
         L=L[:-1]
     file_name=".".join(L)
     f,R=sparsesos.strtoPolynomial(SP)
-    s=raw_input("Is print polynomial?(y)")
-    if s in ['y','Y','']:
-        print(f)
+    # s=raw_input("Is print polynomial?(y)")
+    # if s in ['y','Y','']:
+    #     print(f)
     print("Write poly to file...",end="")
     dct=f.dict();
     l=list(dct)
@@ -31,25 +31,25 @@ def main(S):
         fout.write(" %d\n" % dct[i])
     fout.close()
     print("done.")
-    s=raw_input("Is compute polytope?(y)")
-    if s in ['y','Y','']:
-        print("Compute polytope...",end=" ")
-        points=((QQ(1)/2)*f.newton_polytope()).integral_points()
-        print("done.")
-        print("Write poly to file...",end=" ")
-        fout=open(file_name+"_data_polytope.txt","w")
-        fout.write("%d %d\n" % (len(points),len(points[0])))
-        for i in points:
-            fout.write(" ".join(map(str,i)))
-            fout.write("\n")
-        fout.close()
-        print("done.")
-        print("./is_sos %s_data.txt -d %s_data_polytope.txt" % (file_name,file_name))
-        os.system("./is_sos %s_data.txt -d %s_data_polytope.txt" % (file_name,file_name))
+    # s=raw_input("Is compute polytope?(y)")
+    # if s in ['y','Y','']:
+    #     print("Compute polytope...",end=" ")
+    #     points=((QQ(1)/2)*f.newton_polytope()).integral_points()
+    #     print("done.")
+    #     print("Write poly to file...",end=" ")
+    #     fout=open(file_name+"_data_polytope.txt","w")
+    #     fout.write("%d %d\n" % (len(points),len(points[0])))
+    #     for i in points:
+    #         fout.write(" ".join(map(str,i)))
+    #         fout.write("\n")
+    #     fout.close()
+    #     print("done.")
+    #     print("./is_sos %s_data.txt -d %s_data_polytope.txt" % (file_name,file_name))
+    #     os.system("./is_sos %s_data.txt -d %s_data_polytope.txt" % (file_name,file_name))
     
-    else:
-        print("./is_sos %s_data.txt" % file_name)
-        os.system("./is_sos %s_data.txt" % file_name)
+    # else:
+    print("./is_sos %s_data.txt" % file_name)
+    os.system("./is_sos %s_data.txt" % file_name)
 
 if __name__=="__main__":
     if len(sys.argv)<2:

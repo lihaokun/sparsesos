@@ -1,0 +1,1027 @@
+g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - b*f*j + a*c*f*j)*
+   ((-(a*d + e))*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+     ((1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-(a*d + e))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-e + c*f + h*j - c*i*j - e*j^2 + 
+          c*f*j^2) + d*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+          d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)) - 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-(a*b + c))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - 
+          e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + 
+        b*(a*g + h)*(-h + c*i + e*j - c*f*j)*(-b + a*c + d*f - 
+          a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - 
+          f*g*j + a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 
+          2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+          a*c*f^2*j^2)) + (b*g + c*h + i)*(-i + f*j)*
+       ((-(a*b + c))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + b*(a*d + e)*
+         (-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+          b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+          2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2))) + (b*d + c*e + f)*
+     (-f + i*j - f*j^2)*((a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - 
+        f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-(a*d + e))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-e + c*f + h*j - c*i*j - e*j^2 + 
+          c*f*j^2) + d*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+          d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)) - 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-(1 + a^2))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + 
+          h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) + (b*g + c*h + i)*(-i + f*j)*
+       ((-(1 + a^2))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 2*c*h*i + 
+          c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 2*c^2*f*i*j + 
+          e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2))) - (1 + d^2 + e^2 + f^2)*(1 + j^2)*
+     ((a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+        2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-(a*b + c))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - 
+          e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + 
+        b*(a*g + h)*(-h + c*i + e*j - c*f*j)*(-b + a*c + d*f - 
+          a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - 
+          f*g*j + a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 
+          2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+          a*c*f^2*j^2)) - (1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + 
+        f^2*j^2)*((-(1 + a^2))*g*(-g + a*h + b*i - a*c*i + d*j - 
+          a*e*j - b*f*j + a*c*f*j)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) + (b*g + c*h + i)*(-i + f*j)*
+       ((-(1 + a^2))*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + 
+          g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2))) - j*(d*g + e*h + f*i + j)*
+     ((a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+        2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-(a*b + c))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + b*(a*d + e)*
+         (-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+          b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+          2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)) - (1 + b^2 + c^2)*
+       (1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-(1 + a^2))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 2*c*h*i + 
+          c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 2*c^2*f*i*j + 
+          e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) + (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-(1 + a^2))*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + 
+          g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)))) - (a*g + h)*(-h + c*i + e*j - c*f*j)*
+   ((-d)*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+      d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+     ((1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-(a*d + e))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-e + c*f + h*j - c*i*j - e*j^2 + 
+          c*f*j^2) + d*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+          d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)) - 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-(a*b + c))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - 
+          e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + 
+        b*(a*g + h)*(-h + c*i + e*j - c*f*j)*(-b + a*c + d*f - 
+          a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - 
+          f*g*j + a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 
+          2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+          a*c*f^2*j^2)) + (b*g + c*h + i)*(-i + f*j)*
+       ((-(a*b + c))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + b*(a*d + e)*
+         (-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+          b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+          2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2))) + (b*d + c*e + f)*
+     (-f + i*j - f*j^2)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(a*d + e))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-e + c*f + h*j - c*i*j - e*j^2 + 
+          c*f*j^2) + d*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+          d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)) - 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-a)*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - b*f*j + 
+          a*c*f*j)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*g + h)*(-h + c*i + e*j - c*f*j)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*g + c*h + i)*(-i + f*j)*((-a)*d*(-d + a*e + b*f - a*c*f + 
+          g*j - a*h*j - b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + 
+          b*f*j^2 - a*c*f*j^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - 
+          c*d*f - b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - 
+          a*h^2 - c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - 
+          e*g*j + c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 
+          2*a*c*f*h*j + c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 
+          2*b*c*f*i*j + 2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - 
+          c*d*f*j^2 - b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2) + (a*d + e)*(-e + c*f + h*j - c*i*j - 
+          e*j^2 + c*f*j^2)*(1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + 
+          d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 
+          2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 2*a*b*c*f^2 + 
+          a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 2*b*g*i + 
+          2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    (1 + d^2 + e^2 + f^2)*(1 + j^2)*
+     (b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+        b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+        2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+        a*c*f^2*j^2)*((-(a*b + c))*g*(-g + a*h + b*i - a*c*i + d*j - 
+          a*e*j - b*f*j + a*c*f*j)*(-c + e*f - c*f^2 + h*i - c*i^2 - 
+          f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + 
+        b*(a*g + h)*(-h + c*i + e*j - c*f*j)*(-b + a*c + d*f - 
+          a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - 
+          f*g*j + a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 
+          2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+          a*c*f^2*j^2)) - (1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + 
+        f^2*j^2)*((-a)*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - 
+          b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - 
+          c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*g + h)*(-h + c*i + e*j - c*f*j)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*g + c*h + i)*(-i + f*j)*((-a)*b*(-b + a*c + d*f - a*e*f - 
+          b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + 
+          a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + 
+          d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    j*(d*g + e*h + f*i + j)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(a*b + c))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + b*(a*d + e)*
+         (-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+          b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+          2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)) - (1 + b^2 + c^2)*
+       (1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-a)*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + 
+          a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-a)*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - 
+          a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - 
+          c*d*f - b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - 
+          a*h^2 - c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - 
+          e*g*j + c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 
+          2*a*c*f*h*j + c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 
+          2*b*c*f*i*j + 2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - 
+          c*d*f*j^2 - b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2) + (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)))) + 
+  (b*g + c*h + i)*(-i + f*j)*
+   ((-d)*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+      d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+     ((a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+        2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-(a*d + e))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-e + c*f + h*j - c*i*j - e*j^2 + 
+          c*f*j^2) + d*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+          d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)) - 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-(1 + a^2))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + 
+          h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) + (b*g + c*h + i)*(-i + f*j)*
+       ((-(1 + a^2))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 2*c*h*i + 
+          c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 2*c^2*f*i*j + 
+          e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2))) + (a*d + e)*(-e + c*f + h*j - c*i*j - 
+      e*j^2 + c*f*j^2)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(a*d + e))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-e + c*f + h*j - c*i*j - e*j^2 + 
+          c*f*j^2) + d*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+          d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)) - 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-a)*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - b*f*j + 
+          a*c*f*j)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*g + h)*(-h + c*i + e*j - c*f*j)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*g + c*h + i)*(-i + f*j)*((-a)*d*(-d + a*e + b*f - a*c*f + 
+          g*j - a*h*j - b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + 
+          b*f*j^2 - a*c*f*j^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - 
+          c*d*f - b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - 
+          a*h^2 - c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - 
+          e*g*j + c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 
+          2*a*c*f*h*j + c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 
+          2*b*c*f*i*j + 2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - 
+          c*d*f*j^2 - b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2) + (a*d + e)*(-e + c*f + h*j - c*i*j - 
+          e*j^2 + c*f*j^2)*(1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + 
+          d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 
+          2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 2*a*b*c*f^2 + 
+          a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 2*b*g*i + 
+          2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    (1 + d^2 + e^2 + f^2)*(1 + j^2)*
+     (b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+        b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+        2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+        a*c*f^2*j^2)*((-(1 + a^2))*g*(-g + a*h + b*i - a*c*i + d*j - 
+          a*e*j - b*f*j + a*c*f*j)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) - (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+        c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-a)*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - b*f*j + 
+          a*c*f*j)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*g + h)*(-h + c*i + e*j - c*f*j)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*g + c*h + i)*(-i + f*j)*
+       ((-a^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+           2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+           b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+           c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+           c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+           2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+           b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2)^
+          2 + (1 + a^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    j*(d*g + e*h + f*i + j)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(1 + a^2))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 2*c*h*i + 
+          c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 2*c^2*f*i*j + 
+          e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) - (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+        c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-a)*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + 
+          a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-a^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+           2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+           b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+           c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+           c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+           2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+           b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2)^
+          2 + (1 + a^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)))) + 
+  j*(d*g + e*h + f*i + j)*((-d)*(-d + a*e + b*f - a*c*f + g*j - 
+      a*h*j - b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - 
+      a*c*f*j^2)*((a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - 
+        f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-(a*b + c))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - 
+          e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + 
+        b*(a*g + h)*(-h + c*i + e*j - c*f*j)*(-b + a*c + d*f - 
+          a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - 
+          f*g*j + a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 
+          2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+          a*c*f^2*j^2)) - (1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + 
+        f^2*j^2)*((-(1 + a^2))*g*(-g + a*h + b*i - a*c*i + d*j - 
+          a*e*j - b*f*j + a*c*f*j)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) + (b*g + c*h + i)*(-i + f*j)*
+       ((-(1 + a^2))*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + 
+          g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2))) + (a*d + e)*(-e + c*f + h*j - c*i*j - 
+      e*j^2 + c*f*j^2)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(a*b + c))*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - 
+          e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + 
+        b*(a*g + h)*(-h + c*i + e*j - c*f*j)*(-b + a*c + d*f - 
+          a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - 
+          f*g*j + a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 
+          2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+          a*c*f^2*j^2)) - (1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + 
+        f^2*j^2)*((-a)*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - 
+          b*f*j + a*c*f*j)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - 
+          b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - 
+          c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*g + h)*(-h + c*i + e*j - c*f*j)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*g + c*h + i)*(-i + f*j)*((-a)*b*(-b + a*c + d*f - a*e*f - 
+          b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + 
+          a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + 
+          d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    (b*d + c*e + f)*(-f + i*j - f*j^2)*
+     (b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+        b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+        2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+        a*c*f^2*j^2)*((-(1 + a^2))*g*(-g + a*h + b*i - a*c*i + d*j - 
+          a*e*j - b*f*j + a*c*f*j)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*g + h)*(-h + c*i + e*j - c*f*j)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) - (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+        c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-a)*g*(-g + a*h + b*i - a*c*i + d*j - a*e*j - b*f*j + 
+          a*c*f*j)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*g + h)*(-h + c*i + e*j - c*f*j)*(1 + a^2 + b^2 - 
+          2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + a^2*e^2 - 2*b*d*f + 
+          2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + b^2*f^2 - 
+          2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + a^2*h^2 - 
+          2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + b^2*i^2 - 
+          2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 2*a*e*g*j + 
+          2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 2*a^2*e*h*j - 
+          2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 2*a*c*d*i*j - 
+          2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*g + c*h + i)*(-i + f*j)*
+       ((-a^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+           2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+           b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+           c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+           c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+           2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+           b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2)^
+          2 + (1 + a^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    j*(d*g + e*h + f*i + j)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(1 + a^2))*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + 
+          g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) - (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+        c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-a)*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - 
+          a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - 
+          c*d*f - b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - 
+          a*h^2 - c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - 
+          e*g*j + c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 
+          2*a*c*f*h*j + c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 
+          2*b*c*f*i*j + 2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - 
+          c*d*f*j^2 - b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2) + (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-a^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+           2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+           b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+           c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+           c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+           2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+           b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2)^
+          2 + (1 + a^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)))) + 
+  (1 + g^2 + h^2 + i^2 + j^2)*
+   ((-d)*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + a*c*i*j - 
+      d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+     ((a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+        2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-(a*b + c))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + b*(a*d + e)*
+         (-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+          b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+          2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)) - (1 + b^2 + c^2)*
+       (1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-(1 + a^2))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 2*c*h*i + 
+          c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 2*c^2*f*i*j + 
+          e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) + (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-(1 + a^2))*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + 
+          g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(1 + c^2 + e^2 - 2*c*e*f + 
+          c^2*f^2 + h^2 - 2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 
+          2*c*e*i*j - 2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + 
+          c^2*f^2*j^2) + a*(a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2))) + (a*d + e)*(-e + c*f + h*j - c*i*j - 
+      e*j^2 + c*f*j^2)*(b*(-b + a*c + d*f - a*e*f - b*f^2 + 
+        a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - 
+        d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - 
+        a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+       ((-(a*b + c))*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - 
+          b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - e*i*j + 
+          2*c*f*i*j + e*f*j^2 - c*f^2*j^2) + b*(a*d + e)*
+         (-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+          b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+          2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)) - (1 + b^2 + c^2)*
+       (1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-a)*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + 
+          a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-a)*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - 
+          a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - 
+          c*d*f - b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - 
+          a*h^2 - c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - 
+          e*g*j + c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 
+          2*a*c*f*h*j + c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 
+          2*b*c*f*i*j + 2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - 
+          c*d*f*j^2 - b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2) + (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) - 
+    (b*d + c*e + f)*(-f + i*j - f*j^2)*
+     (b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+        b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+        2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+        a*c*f^2*j^2)*((-(1 + a^2))*d*(-d + a*e + b*f - a*c*f + g*j - 
+          a*h*j - b*i*j + a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - 
+          a*c*f*j^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) - (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+        c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-a)*d*(-d + a*e + b*f - a*c*f + g*j - a*h*j - b*i*j + 
+          a*c*i*j - d*j^2 + a*e*j^2 + b*f*j^2 - a*c*f*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2) + 
+        (a*d + e)*(-e + c*f + h*j - c*i*j - e*j^2 + c*f*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (b*d + c*e + f)*(-f + i*j - f*j^2)*
+       ((-a^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+           2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+           b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+           c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+           c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+           2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+           b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2)^
+          2 + (1 + a^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))) + 
+    (1 + d^2 + e^2 + f^2)*(1 + j^2)*
+     (b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - a*h*i - 
+        b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + a*e*i*j + 
+        2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + 
+        a*c*f^2*j^2)*((-(1 + a^2))*b*(-b + a*c + d*f - a*e*f - 
+          b*f^2 + a*c*f^2 + g*i - a*h*i - b*i^2 + a*c*i^2 - f*g*j + 
+          a*f*h*j - d*i*j + a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + 
+          d*f*j^2 - a*e*f*j^2 - b*f^2*j^2 + a*c*f^2*j^2)*
+         (1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 2*c*h*i + 
+          c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 2*c^2*f*i*j + 
+          e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2) + 
+        a*(a*b + c)*(-c + e*f - c*f^2 + h*i - c*i^2 - f*h*j - 
+          e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+          2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+          b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+          c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+          c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+          2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+          b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2)) - (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+        c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+       ((-a)*b*(-b + a*c + d*f - a*e*f - b*f^2 + a*c*f^2 + g*i - 
+          a*h*i - b*i^2 + a*c*i^2 - f*g*j + a*f*h*j - d*i*j + 
+          a*e*i*j + 2*b*f*i*j - 2*a*c*f*i*j + d*f*j^2 - a*e*f*j^2 - 
+          b*f^2*j^2 + a*c*f^2*j^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - 
+          c*d*f - b*e*f + 2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - 
+          a*h^2 - c*g*i - b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - 
+          e*g*j + c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 
+          2*a*c*f*h*j + c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 
+          2*b*c*f*i*j + 2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - 
+          c*d*f*j^2 - b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - 
+          a*c^2*f^2*j^2) + (a*b + c)*(-c + e*f - c*f^2 + h*i - 
+          c*i^2 - f*h*j - e*i*j + 2*c*f*i*j + e*f*j^2 - c*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2)) + 
+      (1 + b^2 + c^2)*(1 + f^2 + i^2 - 2*f*i*j + f^2*j^2)*
+       ((-a^2)*(-a + b*c - a*c^2 + d*e - a*e^2 - c*d*f - b*e*f + 
+           2*a*c*e*f + b*c*f^2 - a*c^2*f^2 + g*h - a*h^2 - c*g*i - 
+           b*h*i + 2*a*c*h*i + b*c*i^2 - a*c^2*i^2 - e*g*j + 
+           c*f*g*j - d*h*j + 2*a*e*h*j + b*f*h*j - 2*a*c*f*h*j + 
+           c*d*i*j + b*e*i*j - 2*a*c*e*i*j - 2*b*c*f*i*j + 
+           2*a*c^2*f*i*j + d*e*j^2 - a*e^2*j^2 - c*d*f*j^2 - 
+           b*e*f*j^2 + 2*a*c*e*f*j^2 + b*c*f^2*j^2 - a*c^2*f^2*j^2)^
+          2 + (1 + a^2)*(1 + c^2 + e^2 - 2*c*e*f + c^2*f^2 + h^2 - 
+          2*c*h*i + c^2*i^2 - 2*e*h*j + 2*c*f*h*j + 2*c*e*i*j - 
+          2*c^2*f*i*j + e^2*j^2 - 2*c*e*f*j^2 + c^2*f^2*j^2)*
+         (1 + a^2 + b^2 - 2*a*b*c + a^2*c^2 + d^2 - 2*a*d*e + 
+          a^2*e^2 - 2*b*d*f + 2*a*c*d*f + 2*a*b*e*f - 2*a^2*c*e*f + 
+          b^2*f^2 - 2*a*b*c*f^2 + a^2*c^2*f^2 + g^2 - 2*a*g*h + 
+          a^2*h^2 - 2*b*g*i + 2*a*c*g*i + 2*a*b*h*i - 2*a^2*c*h*i + 
+          b^2*i^2 - 2*a*b*c*i^2 + a^2*c^2*i^2 - 2*d*g*j + 
+          2*a*e*g*j + 2*b*f*g*j - 2*a*c*f*g*j + 2*a*d*h*j - 
+          2*a^2*e*h*j - 2*a*b*f*h*j + 2*a^2*c*f*h*j + 2*b*d*i*j - 
+          2*a*c*d*i*j - 2*a*b*e*i*j + 2*a^2*c*e*i*j - 2*b^2*f*i*j + 
+          4*a*b*c*f*i*j - 2*a^2*c^2*f*i*j + d^2*j^2 - 2*a*d*e*j^2 + 
+          a^2*e^2*j^2 - 2*b*d*f*j^2 + 2*a*c*d*f*j^2 + 
+          2*a*b*e*f*j^2 - 2*a^2*c*e*f*j^2 + b^2*f^2*j^2 - 
+          2*a*b*c*f^2*j^2 + a^2*c^2*f^2*j^2))))

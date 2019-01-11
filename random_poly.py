@@ -61,7 +61,7 @@ if __name__ == "__main__":
         f+=i**2
     #print(f)
     print(len(f.dict()))
-    s="randompoly_%d_%d_%d_%d.txt" % (n,m,d,int(time.time()) % 10000)
+    s="randompoly_%d_%d_%d_%.4f.txt" % (n,m,d,l)#int(time.time()) % 10000)
     fout=open(s,"w")
     fout.write(str(f))
     fout.close()
