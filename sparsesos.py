@@ -1,32 +1,31 @@
 from __future__ import print_function
 import sys
 import os
-from sage.all import QQ,PolynomialRing
+from sage.all import ZZ,QQ,PolynomialRing
 from sage.rings.polynomial.polydict import ETuple
 
 def strtoPolynomial(s):
     def is_good(x):
-        return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x in "()+-*^_"
+        return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x in "()+-*^_ \n"
     def is_num(x):
         return (x<="9" and x>="0")
     def is_var(x):
         return (x<="z" and x>="a") or (x<="Z" and x>="A") or (x<="9" and x>="0") or x == "_"
     def is_op(x):
         return x in "+-*^()"
-    def skip(i):
-        while s[i]==" " and i<len(s):
-            i+1
-        return i;
     if type(s)!=str:
         print("str error.",s,"is not a str.")
         sys.exit(0)
     dct=dict()
+    s="".join(s.split())
     i=0;n=0;j=0
     L=[];
     for i in range(len(s)):
+        print("%0.2f%%\r" % ((i*100.0)/len(s)),end="")
         if not is_good(s[i]):
-            print("polynomial error. %s" % s[i])
-        if is_op(s[i]) or s[i]==" ":
+            print("polynomial error. %s,%d" % (s[i],i))
+            sys.exit(0)
+        if is_op(s[i]) or s[i] in " \n":
             if j<i:
                 x=s[j:i]
                 L.append(x)
@@ -45,7 +44,7 @@ def strtoPolynomial(s):
             dct[x]=n;
             n+=1;
     if n>0:
-        R=PolynomialRing(QQ,n,"x")
+        R=PolynomialRing(ZZ,n,"x")
         x=R.gens()
         for i in range(len(L)):
             if L[i] in dct:
@@ -53,14 +52,14 @@ def strtoPolynomial(s):
             if L[i]=="^":
                 L[i]="**"
     s1="".join(L);
-    #print(s1)
+    print("read...done.")
     try:
         f=eval(s1);
     except:
         print("polynomial error. sage can't build this polynomial.")
         sys.exit(0)
     else:
-        print(f)
+        print(len(f.dict()))
     if n==0:
         R=None
     return f,R
@@ -155,16 +154,19 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
         for i in range(n):
             L[i]=l1[i]+l2[i]
         return(ETuple(L))
-
-    #print(f)
+    def test(a,b):
+        for i in a:
+            if not(list_add(i,i) in b):
+                print(i)
+                return False
+        return True
     dct=f.dict()
     if newton_polytope:
         P1=f.newton_polytope()
-        #P_points=P1.integral_points()
         P2=(QQ(1)/2)*P1
         points=P2.integral_points()
+        #print(test(points,dct))
         print(len(points))
-        #print(dct,points,P_points,P2,P1)
     else:
         L=map(sum,list(dct))
         mx=max(L);mn=min(L)
@@ -193,48 +195,47 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
     Ln1=Ln;
     while Ln>0 and len(L[Ln-1])==1:
         Ln-=1
-
     S=dict()
     Sn=0
     Ls=[]
-    FOUTL=[]
-    SL=[]
+    #FOUTL=[]
+    FOUTLS=[];
+    P_points=[]
     for i in range(Ln):
         Ls.append(len(L[i]))
         for j in range(Ls[-1]):
             for k in range(j,Ls[-1]):
                 lk=list_add(points[L[i][j]],points[L[i][k]])
                 if lk in S:
-                    FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    FOUTLS.append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    #FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
                 else:
                     S[lk]=Sn
-                    SL.append(lk)
-                    FOUTL.append([])
-                    FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
+                    P_points.append(lk)
+                    #FOUTL.append([])
+                    FOUTLS.append(" ".join([str(S[lk]+1),str(i+1),str(j+1),str(k+1),"1"]))
                     Sn+=1
     if Ln<len(L):
         Ls.append(Ln-len(L))
         for i in range(Ln,len(L)):
             lk=list_add(points[L[i][0]],points[L[i][0]])
             if lk in S:
-                FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
+                FOUTLS.append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
             else:
                 S[lk]=Sn
-                SL.append(lk)
-                FOUTL.append([])
-                FOUTL[S[lk]].append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
+                P_points.append(lk)
+                #FOUTL.append([])
+                FOUTLS.append(" ".join([str(S[lk]+1),str(Ln+1),str(i+1-Ln),str(i+1-Ln),"1"]))
                 Sn+=1
-    P_points=[None]
-    P_points.extend(SL)
-#    print(P_points)
+
     print(" ".join(map(str,Ls)))
     #print("\n".join(map(str,L)))
     print("====file out begin=====")
     fout=open(f1,"w");
-    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points)-1,len(Ls)))
+    fout.write("%d=mDIM\n%d=nBLOCK\n"% (len(P_points),len(Ls)))
     fout.write(" ".join(map(str,Ls))+"= bLOCKsTRUCT\n")
     c=[]
-    for i in P_points[1:]:
+    for i in P_points:
         #i1=ETuple(tuple(i))
         if i in dct:
             c.append(dct[i])
@@ -242,9 +243,9 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
             c.append(0)
     fout.write(",".join(map(str,c))+"\n")
     ni=-1;nn=len(P_points)
-    for i in range(Sn):
-        fout.write("\n".join(FOUTL[i]))
-        fout.write("\n")
+    #for i in range(Sn):
+    fout.write("\n".join(FOUTLS))
+    fout.write("\n")
     fout.close()
     print("=====file out end=====")
     #os.system("sdpa %s %s" % (f1,f2))
@@ -254,8 +255,12 @@ def is_sparsesos(f,f1="sparsesos.dat-s",f2="sparsesos.result",newton_polytope=Tr
 if __name__=="__main__":
     if len(sys.argv)<2:
         #help()
-        pass
+        file=raw_input("file_name=")
+        fin=open(file,"r");
+        s=fin.read()
+        fin.close()
     else:
         #print(sys.argv[1])
-        f,R=strtoPolynomial(sys.argv[1])
-        is_sparsesos(f)
+        s=sys.argv[1];
+    f,R=strtoPolynomial(s)
+    is_sparsesos(f)
