@@ -23,5 +23,5 @@ python2 IS_SOS.py   filename
 Example
 --------------
 ```
-python2 IS_SOS.py example/F1.txt 
+python2 IS_SOS.py example/F2.txt 
 ```
