@@ -2,7 +2,7 @@
 #define SPARSESOS_H
 #include <vector>
 //#include <map>
-#include "polynomial/polynomial.h"
+#include "polynomial/polynomial.hpp"
 #include <unordered_map>
 #include <map>
 //#include <boost/functional/hash.hpp>
@@ -17,15 +17,15 @@ namespace sparsesos{
   
   typedef std::map<polynomial::monomial,int> monomial_map;
 
-  int read_data(std::string &str_file,polynomial::atomic_polynomial<int> &p);
+  int read_data(std::string &str_file,polynomial::atomic_polynomial<polynomial::monomial,long> &p);
   void read_point_data(std::string &str_file,std::vector<polynomial::monomial> &point);
-  bool get_half(polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &point,bool is_check);
+  bool get_half(polynomial::atomic_polynomial<polynomial::monomial,long> &p,std::vector<polynomial::monomial> &point,bool is_check);
   void com_connect
-    (polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L);
+    (polynomial::atomic_polynomial<polynomial::monomial,long> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L);
   void MCS_M
-    (polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &V,std::vector<std::vector<polynomial::var>> & L);
+    (polynomial::atomic_polynomial<polynomial::monomial,long> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &V,std::vector<std::vector<polynomial::var>> & L);
   void output
-    (std::string& str_file,polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,bool bool_min=false);
+    (std::string& str_file,polynomial::atomic_polynomial<polynomial::monomial,long> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,bool bool_min=false);
           
 }
 

@@ -11,7 +11,7 @@
 #include <sstream> 
 
 namespace sparsesos{
-    int read_data(std::string &str_file,polynomial::atomic_polynomial<int> &p)
+    int read_data(std::string &str_file,polynomial::atomic_polynomial<polynomial::monomial,long>&p)
     {
         std::fstream fin(str_file,std::fstream::in);
         long m=0;
@@ -22,12 +22,12 @@ namespace sparsesos{
             exit(0);
         }
         std::cout<<m<<" "<<n<<std::endl;
-        int a=1;
+        long a=1;
         //std::vector<polynomial::monomial_pair<int>> v1;
-        polynomial::monomial_pair<int> *v1=new polynomial::monomial_pair<int>[m]; 
+        std::pair<polynomial::monomial,long> *v1=new std::pair<polynomial::monomial,long>[m]; 
         unsigned mono[n];
         polynomial::var v[n];
-        std::map<polynomial::monomial,int> dct;
+        //std::map<polynomial::monomial,int> dct;
         for(int i=0;i<n;++i)
             v[i]=i;        
         for(long i=0;i<m;i++)
@@ -56,7 +56,7 @@ namespace sparsesos{
             //v1.push_back(mono);
         }
         fin.close();
-        p=polynomial::atomic_polynomial<int>(v1,m,true,false,true);
+        p=polynomial::atomic_polynomial<polynomial::monomial,long>(v1,m,true,false,true);
         std::cout<<"read...done.          \n";
 
         return n;    
@@ -119,69 +119,69 @@ namespace sparsesos{
                 return false;
         return true;
     }
-    bool get_half(polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &point,bool is_check)
-    {
-        if (p.empty())
-            return true;
-        int n=p.dim();
-        std::cout<<n<<std::endl;
-        polynomial::var_pair v1[n];
-        polynomial::atomic_polynomial<int> check;
-//        monomial_map check;
-        for (auto it=p.begin();it!=p.end();++it)
-        {
-            if (monomial_is_even(it->first))
-            {
-                for (std::size_t i=0;i<it->first.size();i++){
-                    v1[i]=*((it->first).at(i));
-                    v1[i].second/=2;
-                }
-                point.push_back(polynomial::monomial(v1,it->first.size()));
-            //    std::cout<<true;
-            }
-            //std::cout<<std::endl;
-//            if (is_check)
-//                check[it->first]=true;
-        }
-        //for(auto& i:point)
-        //{
-        //    for(auto& j:i)
-        //        std::cout<<j<<" ";
-        //    std::cout<<std::endl;
-        //}
-        auto it=check.begin();
-        if (is_check)
-        {
-            check=p;
-            int s=0;
-            int N=(point.size()*(point.size()-1))/2;
-            for(auto i=point.begin();i!=point.end();i++)
-                for(auto j=i;j!=point.end();j++){
-                    s++;
-                    if (s % 10000==0)
-                        printf("check...%0.2f%%\r",s*100.0/N);
-                    auto it=check.find((*i)*(*j));
-                    //std::cout<<v1.str()<<" "<<(it!=check.end());//<<std::endl;
-                    //auto it=check.find(v1);d
-                    if (it!=check.end())
-                    {
-                        (it->second)=false;
-                    //    std::cout<<" "<<check[v1]<<std::endl;
-                    }
-                }
-            for(auto it=check.begin();it!=check.end();++it)
-                if (it->second)
-                {
-                    std::cout<<"error "<<it->first.str()<<std::endl;
-                    std::cout<<"check...done. :False.\n";
-                    return false;
-                }
-            std::cout<<"check...done. :Success.\n";
-        }
-        return true;
-    }
+//     bool get_half(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &point,bool is_check)
+//     {
+//         if (p.empty())
+//             return true;
+//         int n=p.dim();
+//         std::cout<<n<<std::endl;
+//         polynomial::var_pair v1[n];
+//         polynomial::atomic_polynomial<polynomial::monomial,long>check;
+// //        monomial_map check;
+//         for (auto it=p.begin();it!=p.end();++it)
+//         {
+//             if (monomial_is_even(it->first))
+//             {
+//                 for (std::size_t i=0;i<it->first.size();i++){
+//                     v1[i]=*((it->first).at(i));
+//                     v1[i].second/=2;
+//                 }
+//                 point.push_back(polynomial::monomial(v1,it->first.size()));
+//             //    std::cout<<true;
+//             }
+//             //std::cout<<std::endl;
+// //            if (is_check)
+// //                check[it->first]=true;
+//         }
+//         //for(auto& i:point)
+//         //{
+//         //    for(auto& j:i)
+//         //        std::cout<<j<<" ";
+//         //    std::cout<<std::endl;
+//         //}
+//         auto it=check.begin();
+//         if (is_check)
+//         {
+//             check=p;
+//             int s=0;
+//             int N=(point.size()*(point.size()-1))/2;
+//             for(auto i=point.begin();i!=point.end();i++)
+//                 for(auto j=i;j!=point.end();j++){
+//                     s++;
+//                     if (s % 10000==0)
+//                         printf("check...%0.2f%%\r",s*100.0/N);
+//                     auto it=check.find((*i)*(*j));
+//                     //std::cout<<v1.str()<<" "<<(it!=check.end());//<<std::endl;
+//                     //auto it=check.find(v1);d
+//                     if (it!=check.end())
+//                     {
+//                         (it->second)=false;
+//                     //    std::cout<<" "<<check[v1]<<std::endl;
+//                     }
+//                 }
+//             for(auto it=check.begin();it!=check.end();++it)
+//                 if (it->second)
+//                 {
+//                     std::cout<<"error "<<it->first.str()<<std::endl;
+//                     std::cout<<"check...done. :False.\n";
+//                     return false;
+//                 }
+//             std::cout<<"check...done. :Success.\n";
+//         }
+//         return true;
+//     }
     void com_connect_dfs
-    (polynomial::var point,polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::list<polynomial::var> &pot,std::vector<polynomial::var> &v,int & sn)
+    (polynomial::var point,polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::list<polynomial::var> &pot,std::vector<polynomial::var> &v,int & sn)
     {
         int n=v.size();
         //polynomial::monomial_pair it;
@@ -206,7 +206,7 @@ namespace sparsesos{
             com_connect_dfs(v[n],p,points,pot,v,sn);
     }
     void com_connect
-    (polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L)
+    (polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L)
     {
         std::list<polynomial::var> pot;
         //std::list<polynomial::var> lst;
@@ -231,7 +231,7 @@ namespace sparsesos{
                                     const std::vector<polynomial::var> &v2){return v1.size()>v2.size();});
     }
     void get_graph
-    (polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<polynomial::var> &v,std::vector<std::unordered_set<polynomial::var>> &G)
+    (polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<polynomial::var> &v,std::vector<std::unordered_set<polynomial::var>> &G)
     {
         polynomial::monomial mono; 
         for(auto i=v.begin();i!=v.end();++i)
@@ -268,7 +268,7 @@ namespace sparsesos{
         return true;
     }
     void MCS_M
-    (polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &V,std::vector<std::vector<polynomial::var>> & L)
+    (polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &V,std::vector<std::vector<polynomial::var>> & L)
     {
         std::vector<std::unordered_set<polynomial::var>> G(points.size());
         std::vector<int> w(points.size());
@@ -371,7 +371,7 @@ namespace sparsesos{
         std::cout<<"MCS_M ...done.\n";
     }
     void output
-    (std::string &str_file,polynomial::atomic_polynomial<int> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,bool min_bool)
+    (std::string &str_file,polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,bool min_bool)
     {
         polynomial::var i;
         std::ostringstream out;

@@ -6,74 +6,81 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctime>
-//#include "SOS_torational.hpp"
 #include "sos.hpp"
-//#include "polynomial.h"
+
 int main(int argc, char const *argv[])
 {
         
     std::string s,sout;
     int i1,i2;
     int argc_int=1;
-    if (argc>1 && argv[0]!="-"){
-        s=argv[1];
-        ++argc_int;
-    }
-    else{
-        std::cout<<"file_name=";
-        std::cin>>s;
-    }
     int B=1;
     int min_bool=false;
     int point_com=0;
+    bool polyprint_bool=false;
+    bool file_name_bool=false;
     std::string point_com_s;
     while (argc_int<argc){
         if (strcmp(argv[argc_int],"-t")==0)
             B=2;
-        else
-        if (strcmp(argv[argc_int],"-s")==0)
+        else if (strcmp(argv[argc_int],"-s")==0)
             B=0;
-        else
-        if (strcmp(argv[argc_int],"-c")==0)
+        else if (strcmp(argv[argc_int],"-c")==0)
             B=1;
-        else
-        if (strcmp(argv[argc_int],"-m")==0)
+        else if (strcmp(argv[argc_int],"-m")==0)
             min_bool=true;
-        else
-        if (strcmp(argv[argc_int],"-d")==0 && argc_int+1<argc)
+        else if (strcmp(argv[argc_int],"-p")==0)
+            polyprint_bool=true;
+        else if (strcmp(argv[argc_int],"-d")==0)
         {
-            point_com=1;
-            point_com_s=argv[++argc_int];
+            if  (argc_int+1<argc){
+                point_com=1;
+                point_com_s=argv[++argc_int];
+            }
+            else{
+                std::cout<<"Input parameter Error： -d.\n";
+                return 0;
+            }
+        }
+        else if  (argv[argc_int][0]!='-' && !file_name_bool)
+        {
+            file_name_bool=true;
+            s=argv[argc_int];
         }
         else{
-            std::cout<<argv[argc_int]<<" is no def.\n";
+            std::cout<<argv[argc_int]<<"?\n";
             return 0;
         }
         ++argc_int;
     }
-    
-    //s="j421_data.txt";
-    //s="j621_data.txt";
-    //s="j521_data.txt";
-    //s="test_data.txt";
-    //std::cin>>s;
-    //sparsesos::monomial_map dct;
-    polynomial::atomic_polynomial<int> p;
-    sparsesos::read_data(s,p);
-    //std::cout<<p.str()<<std::endl;
-    std::cout<<"deg:"<<p.deg()<<std::endl;
-    std::vector<polynomial::monomial> points;
     clock_t t;
+    t=clock();
+    std::cout<<"Read...\n";
+    std::unordered_map<std::string,int> varmap;
+    std::vector<std::string> varname;
+    polynomial::atomic_polynomial<polynomial::monomial,long> p;
+    try{
+        p=is_sos::read_polynomial(s,varmap,varname);
+    }catch(...){
+        std::cout<<"Input error.\n";
+        return 0;
+    }
+    if  (polyprint_bool)
+        std::cout<<is_sos::polynomial_str(p,varmap,varname)<<std::endl;
+    printf("Read done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
+    std::size_t polydim=varname.size();
+    std::vector<polynomial::monomial> points;
+    
     //time(&t);
     t=clock();
     if (point_com==0){
         //sparsesos::get_half(p,points,true);
-        points=is_sos::sos_support_mosek(p);
+        points=is_sos::sos_support_mosek(p,polydim);
     }
     else{
         sparsesos::read_point_data(point_com_s,points);
     }
-    std::cout<<  points.size()<<std::endl;
+    //std::cout<<  points.size()<<std::endl;
     std::vector<std::vector<polynomial::var>> L;
     //time_t t;
     
@@ -133,10 +140,10 @@ int main(int argc, char const *argv[])
     }
     s="./csdp/bin/csdp "+s+" "+sout;
     //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
-    printf("(time:%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
-    std::cout<<"----SDP solver------\n";
+    printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
+    std::cout<<"-------SDP solver begin-------\n";
     system(s.c_str());
-    
+    std::cout<<"-------SDP solver end-------\n";
     return 0;
 
 }

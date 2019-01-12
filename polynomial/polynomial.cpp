@@ -1,5 +1,5 @@
 
-#include "polynomial.h"
+#include "polynomial.hpp"
 #include <iostream>
 #include <algorithm>
 #include <set>
@@ -48,7 +48,7 @@ namespace polynomial{
           if (this->__dim<=size*SMT_MATH_POLYNOMIAL_monomial_shrink_bound)
           {
               this->__times=new var_pair[this->__dim];
-              std::copy(l,l+this->__dim,this->__times);
+              std::move(l,l+this->__dim,this->__times);
               delete [] l;
           }
           this->__times_end=this->__times+this->__dim;
@@ -211,9 +211,9 @@ namespace polynomial{
   }
   unsigned monomial::re_deg(){
     var size=pair_array_RD<var_pair>(this->__times,this->__dim);
-    if (size<=this->__dim*SMT_MATH_POLYNOMIAL_monomial_shrink_bound){
+    if (size!=0 && size<=this->__dim*SMT_MATH_POLYNOMIAL_monomial_shrink_bound){
       var_pair* l=new var_pair[size];
-      std::copy(this->__times,this->__times+size,l);
+      std::move(this->__times,this->__times+size,l);
       if (this->__times)
         delete [] this->__times;
       this->__times=l;
@@ -236,14 +236,7 @@ namespace polynomial{
 
   }
   
-  unsigned monomial::operator[](var i) const
-  {
-    var_pair* j=this->find(i);
-    if (j!=this->end())
-      return j->second;
-    else
-      return 0;
-  }
+
   /*
   unsigned monomial::set_time(var i,unsigned j)
   {
@@ -278,9 +271,10 @@ namespace polynomial{
     }
     return ss.str();
   }
-  /*
   polynomialring::polynomialring():__vars(nullptr),__vars_end(nullptr),__size(0)
-  {}
+  {
+    uint64_monomial_data_init(this->__data64,0);
+  }
   polynomialring::polynomialring(var* vs1,std::size_t size,bool is_move,bool is_sorted,bool is_RD)
   :__vars(nullptr),__vars_end(nullptr),__size(0)
   {
@@ -309,7 +303,7 @@ namespace polynomial{
         this->__size=size1;
         if (size1<size*SMT_MATH_POLYNOMIAL_monomial_shrink_bound){
           this->__vars=new var[size1];
-          std::copy(vs,vs+size1,this->__vars);
+          std::move(vs,vs+size1,this->__vars);
           delete [] vs;
         }
         else
@@ -318,33 +312,25 @@ namespace polynomial{
       
       }
     }
+    uint64_monomial_data_init(this->__data64,this->__size);
+    ///std::cout<<this->__data64.__size<<" "<<this->size()<<std::endl;
   }
   polynomialring::polynomialring(const polynomialring& R)
-  :__size(R.__size)
+  :__size(R.__size),__data64(R.__data64)
   {
     this->__vars=new var[this->__size];
     std::copy(R.begin(),R.end(),this->__vars);
     this->__vars_end=this->__vars+this->__size;
+    //this->__data64=R.__data64;
   }
   polynomialring::polynomialring(polynomialring && R)
-  :__size(R.__size),__vars(R.__vars),__vars_end(R.__vars_end)
+  :__size(R.__size),__vars(R.__vars),__vars_end(R.__vars_end),__data64(R.__data64)
   {
     R.__size=0;
     R.__vars=nullptr;R.__vars_end=nullptr;
+    uint64_monomial_data_init(R.__data64,0);
   }
-  void polynomialring::clear()
-  {
-    if (this->__vars){
-      delete [] this->__vars;
-      this->__vars=nullptr;
-      this->__vars_end=nullptr;
-    }
-    this->__size=0;
-  }
-  polynomialring::~polynomialring()
-  {
-    this->clear();
-  }
+
   polynomialring& polynomialring::operator=(const polynomialring &R){
     this->clear();
     if (R.__size)
@@ -353,6 +339,7 @@ namespace polynomial{
       this->__vars=new var[R.__size];
       this->__vars_end=this->__vars+this->__size;
       std::copy(R.__vars,R.__vars_end,this->__vars);
+      this->__data64=R.__data64;
     }
     return *this;
   }
@@ -365,6 +352,8 @@ namespace polynomial{
     R.__vars=nullptr;
     this->__vars_end=R.__vars_end;
     R.__vars_end=nullptr;
+    this->__data64=R.__data64;
+    uint64_monomial_data_init(R.__data64,0);
     return *this;
   }
   polynomialring polynomialring::operator+(const polynomialring &R) const
@@ -378,12 +367,13 @@ namespace polynomial{
       if(size<(this->__size+R.__size)*SMT_MATH_POLYNOMIAL_monomial_shrink_bound){
         newR.__vars=new var[size];
         newR.__vars_end=newR.__vars+size;
-        std::copy(vs,vs+size,newR.__vars);
+        std::move(vs,vs+size,newR.__vars);
         delete [] vs;
       }
       else
         newR.__vars=vs;
       newR.__vars_end=newR.__vars+size;
+      uint64_monomial_data_init(newR.__data64,newR.__size);
       return newR;
     }
     else
@@ -407,12 +397,12 @@ namespace polynomial{
     auto m_ptr=m.begin();
     auto r_ptr=R.begin();
     uint64_t a(m.deg());
-    std::size_t len=64/(R.size()+1);
-    //std::cout<<a<<" ";
+    //std::size_t len=64/(R.size()+1);
+    //std::cout<<R.data64_size()<<" "<<R.size()<<std::endl;
     while (r_ptr!=R.end() )
     {
       //std::cout<<a<<" ";
-      a<<=len;
+      a<<=R.data64_len();
       if (m_ptr!=m.end() && *r_ptr==m_ptr->first){
         a+=m_ptr->second;
         ++m_ptr;
@@ -429,8 +419,8 @@ namespace polynomial{
       return monomial();
     if (R.size()==1)
       return monomial(*R.begin(),m);
-    std::size_t len=64/(R.size()+1);
-    uint64_t len2=(1<<len)-1;
+    //std::size_t len=64/(R.size()+1);
+    //uint64_t len2=(1<<len)-1;
     //std::cout<<len2<<" ";
     monomial newm;
     //var_pair * vs=new var_pair[R.size()];
@@ -450,11 +440,12 @@ namespace polynomial{
     {
       vs[i].first=*r_ptr;
       ++r_ptr;
-      vs[R.size()-1-i].second=m&len2;
-      m>>=len;
+      vs[R.size()-1-i].second=m&R.data64_range();
+      m>>=R.data64_len();
+      //std::cout<<vs[i].first<<" "<<vs[R.size()-1-i].second<<std::endl;
     }
     newm.monomial_init(vs,R.size(),true,false);
     newm.__deg=m;
     return newm;
-  }*/
+  }
 }
