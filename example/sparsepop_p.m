@@ -4,5 +4,6 @@ function [t] = sparsepop_p(n)
     param.SDPsolver = 'sdpt3';
     sparsePOP(['P_',num2str(n),'.gms'],param);
     t = toc;
+    fprintf("Totel time=%.2fs\n",t);
 end
 

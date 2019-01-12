@@ -1,11 +1,10 @@
-function [prog,info,t] = sostools_p(n)
-
-    fprintf("init..");
+function [prog,info,t] = sostools_F(n)
+   fprintf("init..");
     tic; 
-    syms  x y a b c d e f;
-    vartable=[x,y,a,b,c,d,e,f];
+    syms x0 x1 x2 x3 x4 x5 x6 x7 x8 x9;
+    vartable=[x0,x1,x2,x3,x4,x5,x6,x7,x8,x9];
     prog = sosprogram(vartable);
-    p=eval(fileread(['P',int2str(n),'.txt']));
+    p=eval(fileread(['F',int2str(n),'.txt']));
     t1 = toc;
     fprintf("done.(%.2fs)\n",t1);
     tic; 
@@ -15,4 +14,3 @@ function [prog,info,t] = sostools_p(n)
     t = toc;
     fprintf("Totel time=%.2fs\n",t);
 end
-

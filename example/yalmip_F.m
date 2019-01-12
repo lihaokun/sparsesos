@@ -1,8 +1,8 @@
-function [sol,v,Q] = yalmip_p(n)
+function [sol,v,Q] = yalmip_F(n)
     fprintf("init..");
     tic; 
-    sdpvar  x y a b c d e f;
-    p=eval(fileread(['P',int2str(n),'.txt']));
+    sdpvar x0 x1 x2 x3 x4 x5 x6 x7 x8 x9;
+    p=eval(fileread(['F',int2str(n),'.txt']));
     t1 = toc;
     fprintf("done.(%.2fs)\n",t1);
     tic;
