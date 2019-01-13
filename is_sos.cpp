@@ -80,6 +80,7 @@ int main(int argc, char const *argv[])
     else{
         sparsesos::read_point_data(point_com_s,points);
     }
+    printf("(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     //std::cout<<  points.size()<<std::endl;
     std::vector<std::vector<polynomial::var>> L;
     //time_t t;

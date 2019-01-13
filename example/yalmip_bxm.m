@@ -26,7 +26,7 @@ function [sol,v,Q] = yalmip_bxm(n)
     tic;
     f=sos(p);
     ops = sdpsettings('solver','sdpt3');
-    [sol,v,Q]=solvesos(f,0,ops);%);%
+    [sol,v,Q]=solvesos(f);%,0,ops);%
     t=toc;
     fprintf("Totel time=%.2fs\n",t);
 end
