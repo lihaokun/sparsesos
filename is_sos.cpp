@@ -138,7 +138,7 @@ int main(int argc, char const *argv[])
         sparsesos::output(s,p,points,L1,min_bool);    
 
     }
-    s="./csdp/bin/csdp "+s+" "+sout;
+    s="csdp "+s+" "+sout;
     //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
     printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     std::cout<<"-------SDP solver begin-------\n";
