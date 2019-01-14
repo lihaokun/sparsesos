@@ -9,7 +9,12 @@ Dependencies
 
 Install
 ---------------
-Pleasa ensure that mosek for c++ is installed and the license of mosek is valid.For more information about mosek please visit the [link](https://www.mosek.com/documentation/).
+Pleasa ensure that
+*  csdp is in path, 
+*  mosek for c++ is installed,
+*  the license of mosek is valid.
+
+For more information about mosek please visit the [link](https://www.mosek.com/documentation/).
 ```
 g++ polynomial/polynomial.cpp sos.cpp sparsesos.cpp is_sos.cpp -o is_sos -lmosek64 -lfusion64 -pthread -O3
 ```
