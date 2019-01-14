@@ -18,12 +18,14 @@ Pleasa ensure that
 For more information about mosek please visit the [link](https://www.mosek.com/documentation/).
 ```
 chmod +x ./install
-sudo ./install
-```
-If you don't want to add in path or install as user, an alternative way is: 
-```
-chmod +x ./install
 ./install
+```
+
+Uninstall
+---------------
+```
+chmod +x ./uninstall
+./uninstall
 ```
 
 Using
@@ -36,3 +38,4 @@ Example
 ```
 is_sos  example/F2.txt 
 ```
+

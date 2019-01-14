@@ -1,7 +1,13 @@
 #!/bin/bash
 
-rm is_sos
+if [ -f "is_sos" ]
+then
+    rm is_sos
+fi
 cd src
 make clean
-echo "Rm is_sos from /usr/bin"
-rm /usr/bin/is_sos
+if [ -f "/usr/bin/is_sos" ] 
+then 
+    echo "If you want to remove is_sos to path, please run:"
+    echo "sudo rm /usr/bin/is_sos"
+fi

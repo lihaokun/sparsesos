@@ -76,6 +76,11 @@ int main(int argc, char const *argv[])
     if (point_com==0){
         //sparsesos::get_half(p,points,true);
         points=is_sos::sos_support_mosek(p,polydim);
+        if (!is_sos::sos_support_check(p,points))
+        {
+            std::cout<<"Error:The vertex of support of polynomial is not even.\n";
+            return 0;
+        }
     }
     else{
         sparsesos::read_point_data(point_com_s,points);

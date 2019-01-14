@@ -210,6 +210,34 @@ namespace is_sos{
         return monos;
         
     }
+    bool sos_support_check(atomic_polynomial<polynomial::monomial,long> check,vector<monomial> &point)
+    {   
+            int s=0;
+            int N=(point.size()*(point.size()-1))/2;
+            for(auto i=point.begin();i!=point.end();i++)
+                for(auto j=i;j!=point.end();j++){
+                    s++;
+                    if (s % 10000==0)
+                        printf("check...%0.2f%%\r",s*100.0/N);
+                    auto it=check.find((*i)*(*j));
+                    //std::cout<<v1.str()<<" "<<(it!=check.end());//<<std::endl;
+                    //auto it=check.find(v1);d
+                    if (it!=check.end())
+                    {
+                        (it->second)=false;
+                    //    std::cout<<" "<<check[v1]<<std::endl;
+                    }
+                }
+            for(auto it=check.begin();it!=check.end();++it)
+                if (it->second)
+                {
+                    //std::cout<<"error "<<it->first.str()<<std::endl;
+                    std::cout<<"check...done. :False.\n";
+                    return false;
+                }
+            std::cout<<"check...done. :Success.\n";
+            return true;
+    }
     inline bool is_num_char(char c)
     {
         return (c>='0' && c<='9');
@@ -352,6 +380,16 @@ namespace is_sos{
                         atomic_polynomial<monomial,long> p=read_polynomial(fin,varmap,varname);
                         op=read_op(fin);
                         return p;
+                    }
+                    else if(c=='+')
+                    {
+                        op='*';
+                        return atomic_polynomial<monomial,long>(1);
+                    }
+                    else if(c=='-')
+                    {
+                        op='*';
+                        return atomic_polynomial<monomial,long>(-1);
                     }
                     else
                         throw 2;
