@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm is_sos
+cd src
+make clean
+echo "Rm is_sos from /usr/bin"
+rm /usr/bin/is_sos

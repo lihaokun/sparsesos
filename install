@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd src
+make
+cd ../
+cp src/is_sos ./
+echo "Add is_sos to /usr/bin"
+cp is_sos /usr/bin/
