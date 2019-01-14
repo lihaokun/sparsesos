@@ -1,6 +1,6 @@
 SPARSESOS
 ================
-Sparsesos is a simple implementation of determining whether a polynomial is cross sparse SOS polynomial.  It is licensed under the [Apache License 2.0](https://gitlab.com/haokunli/sparsesos/blob/master/LICENSE)
+Sparsesos is a simple implementation of determining whether a polynomial is cross sparse SOS polynomial.  It is licensed under the [Apache License 2.0](https://gitlab.com/haokunli/sparsesos/blob/master/LICENSE).
 
 Dependencies
 ----------------
