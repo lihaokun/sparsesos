@@ -486,7 +486,7 @@ namespace is_sos{
         fin.close();
         return p;
     }
-    std::string  monomial_str(const monomial &m,const std::unordered_map<std::string,int> &varmap,const std::vector<std::string> &varname)
+    std::string  monomial_str(const monomial &m,const std::vector<std::string> &varname)
     {
         std::stringstream ss;
         if (m.empty())
@@ -501,7 +501,7 @@ namespace is_sos{
         }
         return ss.str();
     }
-    std::string polynomial_str(const atomic_polynomial<polynomial::monomial,long> &p,const std::unordered_map<std::string,int> &varmap,const std::vector<std::string> &varname)
+    std::string polynomial_str(const atomic_polynomial<polynomial::monomial,long> &p,const std::vector<std::string> &varname)
     {
         if (p.size()==0)
         return "0";
@@ -516,7 +516,7 @@ namespace is_sos{
             else
             if (i->second!=1 )
             ss<< i->second<<"*";
-            ss<<monomial_str(i->first,varmap,varname);
+            ss<<monomial_str(i->first,varname);
         }
         else
             ss<<i->second;

@@ -53,6 +53,11 @@ int main(int argc, char const *argv[])
         }
         ++argc_int;
     }
+    if (!file_name_bool)
+    {
+        std::cout<<"Input parameter Error.\n";
+        return 0;
+    }
     clock_t t;
     t=clock();
     std::cout<<"Read...\n";
@@ -66,7 +71,7 @@ int main(int argc, char const *argv[])
         return 0;
     }
     if  (polyprint_bool)
-        std::cout<<is_sos::polynomial_str(p,varmap,varname)<<std::endl;
+        std::cout<<is_sos::polynomial_str(p,varname)<<std::endl;
     printf("Read done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     std::size_t polydim=varname.size();
     std::vector<polynomial::monomial> points;
@@ -87,6 +92,14 @@ int main(int argc, char const *argv[])
     }
     //printf("(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     //std::cout<<  points.size()<<std::endl;
+    if (point_com==0){
+    
+        for(auto &i:points)
+        {
+            std::cout<<is_sos::monomial_str(i,varname)<<",";
+        }
+        std::cout<<std::endl;
+    }
     std::vector<std::vector<polynomial::var>> L;
     //time_t t;
     

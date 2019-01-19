@@ -12,6 +12,7 @@ namespace is_sos{
     polynomial::atomic_polynomial<polynomial::monomial,long> read_polynomial(std::fstream &fin,std::unordered_map<std::string,int> &varmap,std::vector<std::string> &varname);
     std::vector<polynomial::monomial>  sos_support_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::size_t polydim);
     bool sos_support_check(polynomial::atomic_polynomial<polynomial::monomial,long> check,std::vector<polynomial::monomial> &point);
-    std::string polynomial_str(const polynomial::atomic_polynomial<polynomial::monomial,long> &p,const std::unordered_map<std::string,int> &varmap,const std::vector<std::string> &varname);
+    std::string  monomial_str(const polynomial::monomial &m,const std::vector<std::string> &varname);
+    std::string polynomial_str(const polynomial::atomic_polynomial<polynomial::monomial,long> &p,const std::vector<std::string> &varname);
 }
 #endif
