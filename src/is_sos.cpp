@@ -92,7 +92,7 @@ int main(int argc, char const *argv[])
     }
     //printf("(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     //std::cout<<  points.size()<<std::endl;
-    if (point_com==0){
+    if (point_com==0 && polyprint_bool){
     
         for(auto &i:points)
         {

@@ -9,9 +9,9 @@ function [prog,info,t] = sostools_p(n)
     t1 = toc;
     fprintf("done.(%.2fs)\n",t1);
     tic; 
-    prog = sosineq(prog,p);
+    prog = sosineq(prog,p,'sparse');
     solver_opt.solver = 'sdpt3';
-    [prog,info] = sossolve(prog,solver_opt);
+    [prog,info] = sossolve(prog,solver_opt);%
     t = toc;
     fprintf("Totel time=%.2fs\n",t);
 end
