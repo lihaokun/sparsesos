@@ -152,7 +152,13 @@ int main(int argc, char const *argv[])
                 i2=1;
             }
         std::cout<<i2<<"*"<<i1<<std::endl;
-        
+        if (polyprint_bool){
+            for (auto &i:L1){
+                for (auto &j:i)
+                   std::cout<<is_sos::monomial_str(points[j],varname)<<",";
+                std::cout<<std::endl;
+            }
+        }
         //s="data.dat-s";
         sparsesos::output(s,p,points,L1,min_bool);    
 
