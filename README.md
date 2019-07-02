@@ -5,7 +5,7 @@ Sparsesos is a simple implementation of determining whether a polynomial is cros
 Dependencies
 ----------------
 * [csdp](https://projects.coin-or.org/Csdp)
-* [mosek 8](https://www.mosek.com/)
+* [mosek 9](https://www.mosek.com/)
 
 Install
 ---------------
