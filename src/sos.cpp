@@ -154,7 +154,7 @@ namespace is_sos{
         auto Co=new_array_ptr<double, 1>(m+1);
         (*C)[m]=0;
         (*Co)[m]=-1;
-        var_pair mono[m];
+        var_pair* mono=new var_pair[m];
         for(int i=0;i<m;++i)
         {
             mono[i].first=i;
@@ -207,6 +207,7 @@ namespace is_sos{
         std::cout<<"Initially "<<num_mono<<" monomials.\n";
         std::cout<<"Keeping "<<monos.size()<<" monomials.\n";
         M->dispose();
+        delete [] mono;
         return monos;
         
     }

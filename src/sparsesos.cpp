@@ -25,8 +25,8 @@ namespace sparsesos{
         long a=1;
         //std::vector<polynomial::monomial_pair<int>> v1;
         std::pair<polynomial::monomial,long> *v1=new std::pair<polynomial::monomial,long>[m]; 
-        unsigned mono[n];
-        polynomial::var v[n];
+        unsigned* mono=new unsigned[n];
+        polynomial::var* v=new polynomial::var[n];
         //std::map<polynomial::monomial,int> dct;
         for(int i=0;i<n;++i)
             v[i]=i;        
@@ -58,7 +58,8 @@ namespace sparsesos{
         fin.close();
         p=polynomial::atomic_polynomial<polynomial::monomial,long>(v1,m,true,false,true);
         std::cout<<"read...done.          \n";
-
+        delete [] mono;
+        delete [] v;
         return n;    
     }
     void read_point_data(std::string &str_file,std::vector<polynomial::monomial> &point)
@@ -76,8 +77,8 @@ namespace sparsesos{
         //std::vector<polynomial::monomial_pair<int>> v1;
         //polynomial::monomial_pair<int> *v1=new polynomial::monomial_pair<int>[m]; 
         point.resize(m);
-        unsigned mono[n];
-        polynomial::var v[n];
+        unsigned* mono=new unsigned[n];
+        polynomial::var* v=new polynomial::var[n];
         std::map<polynomial::monomial,int> dct;
         for(int i=0;i<n;++i)
             v[i]=i;        
@@ -101,6 +102,8 @@ namespace sparsesos{
             point[i]=polynomial::monomial(v,mono,n);
         }
         fin.close();
+        delete [] mono;
+        delete [] v;
         std::cout<<"read...done.          \n";
         /*
         for(auto &i:point)
