@@ -1403,8 +1403,8 @@ namespace polynomial {
       v_push_add(v,m,k);
       return void();
     }
-    PHC<Tm,std::pair<Tm,Type>*,std::pair<Tm,Type>*>* heap[p1.size()];
-    PHC<Tm,std::pair<Tm,Type>*,std::pair<Tm,Type>*>* lin[p1.size()];
+    auto heap=new PHC<Tm,std::pair<Tm,Type>*,std::pair<Tm,Type>*>*[p1.size()];
+    auto lin=new PHC<Tm,std::pair<Tm,Type>*,std::pair<Tm,Type>*>*[p1.size()];
     std::size_t reset=1;
     PHC<Tm,std::pair<Tm,Type>*,std::pair<Tm,Type>*> *lout;
     std::size_t lin_size=0;
@@ -1452,7 +1452,9 @@ namespace polynomial {
       }
       while(lin_size>0)
         PHC_insert(heap,heap_size,lin[--lin_size]);
-    }  
+    }
+    delete [] heap;
+    delete [] lin;  
   }
   
   template <class Tm,class Tz,class Tq>
