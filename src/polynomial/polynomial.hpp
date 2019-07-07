@@ -35,11 +35,11 @@ namespace polynomial {
       //std::cout<<dim;
       m.__size=dim;
       m.__len=64/dim;
-      m.__range=(1L<<(m.__len))-1;
+      m.__range=(1LL<<(m.__len))-1;
       m.__div=0;
       for(;dim>0;--dim){
         m.__div<<=(m.__len);
-        m.__div+=1L<<(m.__len-1);
+        m.__div+=1LL<<(m.__len-1);
       }
     }
     else{
