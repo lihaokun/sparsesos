@@ -11,6 +11,7 @@ using namespace std;
 using namespace polynomial;
 using namespace mosek::fusion;
 using namespace monty;
+
 namespace is_sos{
     bool num_init(vector<int> &num,int &snum,const vector<int> &deg_maxv,const vector<int> &deg_minv,const int &degmax,const int &degmin)
     {
@@ -86,7 +87,7 @@ namespace is_sos{
         
     }
     
-    vector<monomial>  sos_support_mosek(atomic_polynomial<polynomial::monomial,long>&p,std::size_t polydim)
+    vector<monomial>  sos_support_mosek(atomic_polynomial<polynomial::monomial,long>&p,std::size_t polydim,int numthreads)
     {
         
         if (p.empty())
@@ -165,6 +166,8 @@ namespace is_sos{
         vector<monomial> monos;
         int num_mono=0;
         auto M=new Model();//auto _M = finally([&]() { M->dispose(); });
+        if (numthreads)
+            M->setSolverParam("numThreads",numthreads);
         auto X=M->variable( m+1, Domain::unbounded() );//new_array_ptr<int,1>({m+1,1})
         M->constraint("c",Expr::mul(A,X),Domain::lessThan(0,n));
         auto c1=M->constraint("c1",Expr::dot(Co,X),Domain::greaterThan(0.0));
@@ -526,14 +529,10 @@ namespace is_sos{
     }
 
 
-    void  SOS_solver_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L)
+    void  SOS_solver_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,int numthreads)
     {
         std::size_t size=L.size();
         std::size_t tmp_size;
-        //std::size_t const_num=0;
-        //std::vector<std::vector<long>>  rows;
-        //std::vector<std::vector<long>>  cols;
-        //std::vector<std::vector<long>>  values;
         std::vector<monty::rc_ptr<mosek::fusion::Variable>> X(size);
         std::map<polynomial::monomial,std::size_t> dct;
         auto tmp_it=dct.begin();
@@ -541,6 +540,8 @@ namespace is_sos{
         std::vector<double> value; 
         polynomial::monomial mono;
         auto M=new Model();
+        if (numthreads)
+            M->setSolverParam("numThreads",numthreads);
         M->setLogHandler([  ](const std::string & msg) { std::cout << msg << std::flush; } );
         //auto exp_obj=Expr::zeros();
         for(std::size_t l=0;l<size;++l)

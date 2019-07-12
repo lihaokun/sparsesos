@@ -7,10 +7,11 @@
 #include <stdlib.h>
 #include <ctime>
 #include "sos.hpp"
-
+//#include<thread>
 int main(int argc, char const *argv[])
 {
-        
+    //int numThreads=std::thread::hardware_concurrency();
+    //std::cout << "numThreads：" << numThreads << std::endl;
     std::string s,sout;
     int i1,i2;
     int argc_int=1;
@@ -101,6 +102,8 @@ int main(int argc, char const *argv[])
         std::cout<<std::endl;
     }
     std::vector<std::vector<polynomial::var>> L;
+    std::vector<std::vector<polynomial::var>> L1;
+        
     //time_t t;
     
     s="data.dat-s";
@@ -111,8 +114,7 @@ int main(int argc, char const *argv[])
         for(polynomial::var i=0;i<points.size();++i)
             L[0][i]=i;
         //sparsesos::output(s,p,points,L,min_bool);
-        is_sos::SOS_solver_mosek(p,points,L);
-    }
+   }
     if (B>=1){
         sparsesos::com_connect(p,points,L);
         i1=L.begin()->size();i2=0;
@@ -133,13 +135,12 @@ int main(int argc, char const *argv[])
         std::cout<<std::endl;
         */
         //s="data.dat-s";
-        if(B==1)
-            //sparsesos::output(s,p,points,L,min_bool);
-            is_sos::SOS_solver_mosek(p,points,L);
+        //if(B==1)
+        //    sparsesos::output(s,p,points,L,false);
+            
     }
     if (B==2){
         //std::cout<<std::endl;
-        std::vector<std::vector<polynomial::var>> L1;
         
         sparsesos::MCS_M(p,points,L, L1);
         std::sort(L1.begin(),L1.end(),[](const std::vector<polynomial::var> &v1,
@@ -163,15 +164,19 @@ int main(int argc, char const *argv[])
         }
         //s="data.dat-s";
         //sparsesos::output(s,p,points,L1,min_bool);    
-        is_sos::SOS_solver_mosek(p,points,L1);
+        //is_sos::SOS_solver_mosek(p,points,L1);
 
     }
     // s="csdp "+s+" "+sout;
-    // //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
-    // printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
-    // std::cout<<"-------SDP solver begin-------\n";
+    //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
+    printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
+    std::cout<<"-------SDP solver begin-------\n";
     // system(s.c_str());
-    // std::cout<<"-------SDP solver end-------\n";
+    if (B!=2)
+        is_sos::SOS_solver_mosek(p,points,L);
+    else
+        is_sos::SOS_solver_mosek(p,points,L1);
+    std::cout<<"-------SDP solver end-------\n";
     return 0;
 
 }
