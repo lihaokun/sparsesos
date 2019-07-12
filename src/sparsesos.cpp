@@ -376,7 +376,6 @@ namespace sparsesos{
     void output
     (std::string &str_file,polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,bool min_bool)
     {
-        polynomial::var i;
         std::ostringstream out;
         std::map<polynomial::monomial,std::size_t> dct;
         std::vector<int> coeff;

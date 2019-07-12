@@ -1,6 +1,6 @@
 CXX=g++
 MOSEK=-lmosek64 -lfusion64
-CFLAGS=-O3 -flto
+CFLAGS=-O3 -flto -pthread
 objects=polynomial.o  sparsesos.o sos.o is_sos.o 
 is_sos: $(objects)  
 	$(CXX) $(CFLAGS) $(objects) $(MOSEK) -o is_sos 

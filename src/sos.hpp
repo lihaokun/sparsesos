@@ -14,5 +14,6 @@ namespace is_sos{
     bool sos_support_check(polynomial::atomic_polynomial<polynomial::monomial,long> check,std::vector<polynomial::monomial> &point);
     std::string  monomial_str(const polynomial::monomial &m,const std::vector<std::string> &varname);
     std::string polynomial_str(const polynomial::atomic_polynomial<polynomial::monomial,long> &p,const std::vector<std::string> &varname);
+    void  SOS_solver_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L);
 }
 #endif

@@ -525,11 +525,57 @@ namespace is_sos{
         return ss.str();
     }
 
-}
-// int main(int argc, char const *argv[])
-// {
-//     /* code */
-//     return 0;
-// }
 
+    void  SOS_solver_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L)
+    {
+        std::size_t size=L.size();
+        std::size_t tmp_size;
+        //std::size_t const_num=0;
+        //std::vector<std::vector<long>>  rows;
+        //std::vector<std::vector<long>>  cols;
+        //std::vector<std::vector<long>>  values;
+        std::vector<monty::rc_ptr<mosek::fusion::Variable>> X(size);
+        std::map<polynomial::monomial,std::size_t> dct;
+        auto tmp_it=dct.begin();
+        std::vector<monty::rc_ptr<mosek::fusion::Expression>> exp;
+        std::vector<double> value; 
+        polynomial::monomial mono;
+        auto M=new Model();
+        M->setLogHandler([  ](const std::string & msg) { std::cout << msg << std::flush; } );
+        //auto exp_obj=Expr::zeros();
+        for(std::size_t l=0;l<size;++l)
+            {
+                tmp_size=L[l].size();
+                X[l]=M->variable("X"+std::to_string(l),Domain::inPSDCone(tmp_size));
+                for(std::size_t i=0;i!=tmp_size;++i )
+                    for(std::size_t j=i;j!=tmp_size;++j)
+                    {
+                        mono=points[L[l][i]]*points[L[l][j]];
+                        tmp_it=dct.find(mono);
+                        if (tmp_it==dct.end())
+                        {
+                            if (i==j)
+                                exp.push_back(X[l]->index(i,j));
+                            else
+                                exp.push_back(Expr::add(X[l]->index(i,j),X[l]->index(j,i)));
+                            dct[mono]=exp.size()-1;
+                            value.push_back(p[mono]);
+                        }
+                        else
+                            if (i==j)
+                                exp[tmp_it->second]=Expr::add(exp[tmp_it->second],X[l]->index(i,j));
+                            else
+                                exp[tmp_it->second]=Expr::add(exp[tmp_it->second],
+                                                                Expr::add(X[l]->index(i,j),X[l]->index(j,i)));
+                    }
+            }
+        for(std::size_t i=0;i!=exp.size();i++)
+        {
+            M->constraint(exp[i],Domain::equalsTo(value[i]));
+        }
+        M->objective("obj",ObjectiveSense::Minimize,Expr::zeros(1));
+        M->solve();
+        M->dispose();
+    }
+}
 

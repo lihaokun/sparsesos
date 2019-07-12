@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
     int i1,i2;
     int argc_int=1;
     int B=1;
-    int min_bool=false;
+    //int min_bool=false;
     int point_com=0;
     bool polyprint_bool=false;
     bool file_name_bool=false;
@@ -27,8 +27,8 @@ int main(int argc, char const *argv[])
             B=0;
         else if (strcmp(argv[argc_int],"-c")==0)
             B=1;
-        else if (strcmp(argv[argc_int],"-m")==0)
-            min_bool=true;
+        // else if (strcmp(argv[argc_int],"-m")==0)
+        //     min_bool=true;
         else if (strcmp(argv[argc_int],"-p")==0)
             polyprint_bool=true;
         else if (strcmp(argv[argc_int],"-d")==0)
@@ -110,7 +110,8 @@ int main(int argc, char const *argv[])
         L.push_back(std::vector<polynomial::var>(points.size()));
         for(polynomial::var i=0;i<points.size();++i)
             L[0][i]=i;
-        sparsesos::output(s,p,points,L,min_bool);
+        //sparsesos::output(s,p,points,L,min_bool);
+        is_sos::SOS_solver_mosek(p,points,L);
     }
     if (B>=1){
         sparsesos::com_connect(p,points,L);
@@ -133,7 +134,8 @@ int main(int argc, char const *argv[])
         */
         //s="data.dat-s";
         if(B==1)
-            sparsesos::output(s,p,points,L,min_bool);
+            //sparsesos::output(s,p,points,L,min_bool);
+            is_sos::SOS_solver_mosek(p,points,L);
     }
     if (B==2){
         //std::cout<<std::endl;
@@ -160,15 +162,16 @@ int main(int argc, char const *argv[])
             }
         }
         //s="data.dat-s";
-        sparsesos::output(s,p,points,L1,min_bool);    
+        //sparsesos::output(s,p,points,L1,min_bool);    
+        is_sos::SOS_solver_mosek(p,points,L1);
 
     }
-    s="csdp "+s+" "+sout;
-    //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
-    printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
-    std::cout<<"-------SDP solver begin-------\n";
-    system(s.c_str());
-    std::cout<<"-------SDP solver end-------\n";
+    // s="csdp "+s+" "+sout;
+    // //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
+    // printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
+    // std::cout<<"-------SDP solver begin-------\n";
+    // system(s.c_str());
+    // std::cout<<"-------SDP solver end-------\n";
     return 0;
 
 }
