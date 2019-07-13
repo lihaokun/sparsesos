@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cd src
-make
-cd ../
-cp src/is_sos ./
-echo "If you want to add is_sos to path, please run:"
-echo "sudo cp src/is_sos /usr/bin/is_sos"

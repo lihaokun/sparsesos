@@ -4,9 +4,12 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <fusion.h>
+#include "fusion.h"
 #include "polynomial/polynomial.hpp"
 #include "sos.hpp"
+#ifndef  mosek_v
+    #define mosek_v 8
+#endif
 using namespace std;
 using namespace polynomial;
 using namespace mosek::fusion;
@@ -141,8 +144,8 @@ namespace is_sos{
         {
             return vector<monomial>();
         }
-        vector<int> num(m);//={0};
-        //vector<int> num1(m);
+        vector<int> num(m,0);//={0};
+        //;
         //num[m]=-1;
         //num[m-1]=-1;
 
@@ -151,17 +154,21 @@ namespace is_sos{
         //num[snum++]=1;num[snum++]=1;num[snum++]=0;num[snum++]=0;num[snum++]=1;
         
         bool b=num_init(num,snum,deg_maxv,deg_minv,degmax,degmin);
-        //auto C=new_array_ptr<double, 1>(m+1);
+        #if mosek_v==8
+            auto C=new_array_ptr<double, 1>(m+1);
+            (*C)[m]=0;
+            vector<int> num1(m,0);
+        #endif
         auto Co=new_array_ptr<double, 1>(m+1);
-        //(*C)[m]=0;
         (*Co)[m]=-1;
         var_pair* mono=new var_pair[m];
         for(int i=0;i<m;++i)
         {
             mono[i].first=i;
-            //(*C)[i]=0;
             (*Co)[i]=0;
-            //num1[i]=0;
+            #if mosek_v==8
+                (*C)[i]=0;
+            #endif
         }
         vector<monomial> monos;
         int num_mono=0;
@@ -180,17 +187,25 @@ namespace is_sos{
             for(n1=0;n1<m;++n1)
                 if (num[n1]>=0)
                 {
-                    //(*C)[n1]=num[n1]-num1[n1];
+                    #if mosek_v==8
+                        (*C)[n1]=num[n1]-num1[n1];
+                    #endif
                     (*Co)[n1]=num[n1];
                     mono[n1].second=num[n1];
                 }
                 else{
-                    //(*C)[n1]=0-num1[n1];
+                    #if mosek_v==8
+                        (*C)[n1]=0-num1[n1];
+                    #endif
                     (*Co)[n1]=0;
                     mono[n1].second=0;
                 }
-            //num1=num;
-            c1->update(Expr::dot(Co,X));
+            #if mosek_v==8
+                num1=num;
+                c1->add(Expr::dot(C,X));
+            #else
+                c1->update(Expr::dot(Co,X));
+            #endif
             M->objective("obj", ObjectiveSense::Maximize, Expr::dot(Co,X));
             M->solve();
 
@@ -556,7 +571,7 @@ namespace is_sos{
                         if (tmp_it==dct.end())
                         {
                             if (i==j)
-                                exp.push_back(X[l]->index(i,j));
+                                exp.push_back(X[l]->index(i,j)->asExpr());
                             else
                                 exp.push_back(Expr::add(X[l]->index(i,j),X[l]->index(j,i)));
                             dct[mono]=exp.size()-1;
