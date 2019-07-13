@@ -8,8 +8,8 @@ dir=`pwd -P`
 #     read -p "Do you want to reinstall?[y/n]" isre
 #     if  [ $isre == y ]
 #     then
-#         chmod +x uninstall
-#         ./uninstall
+#         chmod +x uninstall.sh
+#         ./uninstall.sh
 #         echo 
 #     else
 #         exit 1

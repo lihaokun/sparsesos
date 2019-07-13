@@ -7,7 +7,7 @@ fi
 make -C ./src clean 
 if [ -d "./mosek/8" ]
 then
-    read -p "Do you want to delete mosek 8 at ./mosek/8?[y/n]" var
+    read -p "Do you want to delete mosek 8 at ./mosek/8?[y/n](default=n)" var
     if [ -z $var ]
     then
         var=n
@@ -20,7 +20,7 @@ then
 fi
 if [ -d "./mosek/9.0" ]
 then
-    read -p "Do you want to delete mosek 9.0 at ./mosek/9.0?[y/n]" var
+    read -p "Do you want to delete mosek 9.0 at ./mosek/9.0?[y/n](default=n)" var
     if [ -z $var ]
     then
         var=n
