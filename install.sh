@@ -45,9 +45,20 @@ then
         rm mosektoolslinux64x86.tar.bz2
     fi
     wget https://download.mosek.com/stable/8.1.0.81/mosektoolslinux64x86.tar.bz2
+    if [ $? -ne 0 ]
+    then
+        echo  -e "\033[31m Installation Failed. \033[0m"
+        exit 1
+    fi
     echo "tar -xjf mosektoolslinux64x86.tar.bz2" 
     tar -xjf mosektoolslinux64x86.tar.bz2
     make -C mosek/8/tools/platform/linux64x86/src/fusion_cxx install
+    if [ $? -ne 0 ]
+    then
+        echo  -e "\033[31m Installation Failed. \033[0m"
+        exit 1
+    fi
+    
 fi
 if [ $mosek_v -eq 2 ] && ! [ -d mosek/9.0 ]
 then
@@ -56,8 +67,22 @@ then
         rm mosektoolslinux64x86.tar.bz2
     fi
     wget https://download.mosek.com/stable/9.0.97/mosektoolslinux64x86.tar.bz2
+    if [ $? -ne 0 ]
+    then
+        echo  -e "\033[31m Installation Failed. \033[0m"
+        exit 1
+    fi
+    
+    echo "tar -xjf mosektoolslinux64x86.tar.bz2" 
+    
     tar -xjf mosektoolslinux64x86.tar.bz2
     make -C mosek/9.0/tools/platform/linux64x86/src/fusion_cxx install
+    if [ $? -ne 0 ]
+    then
+        echo  -e "\033[31m Installation Failed. \033[0m"
+        exit 1
+    fi
+    
 fi
 if [ $mosek_v -eq 2 ]
 then
@@ -65,14 +90,14 @@ then
 else
     make -C ./src/  
 fi
-if [ -f "src/is_sos" ]
+if [ $? -ne 0 ]
 then
-    ln -sf src/is_sos ./
-    echo  -e "\033[32m Installation Successful. \033[0m"
-    echo -e "\033[1m Add is_sos to path 
-sudo ln -s ${dir}/src/is_sos /usr/bin/is_sos \033[0m"
-    sudo ln -sf ${dir}/src/is_sos /usr/bin/is_sos
-else
     echo  -e "\033[31m Installation Failed. \033[0m"
     exit 1
 fi
+
+ln -sf src/is_sos ./
+echo  -e "\033[32m Installation Successful. \033[0m"
+echo -e "\033[1m Add is_sos to path 
+sudo ln -s ${dir}/src/is_sos /usr/bin/is_sos \033[0m"
+sudo ln -sf ${dir}/src/is_sos /usr/bin/is_sos

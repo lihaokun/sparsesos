@@ -9,13 +9,15 @@ else
 	LPATHS=-L../mosek/8/tools/platform/linux64x86/bin -Wl,-rpath-link,../mosek/8/tools/platform/linux64x86/bin '-Wl,-rpath=$$ORIGIN/../mosek/8/tools/platform/linux64x86/bin'
 endif
 
-objects=polynomial.o  sparsesos.o sos.o is_sos.o 
+objects=polynomial.o  sparsesos.o sos.o sos_mosek.o is_sos.o  
 is_sos: $(objects)  
 	$(CXX) $(CFLAGS) $(IPATHS) $(LPATHS) $(objects)  -o is_sos $(MOSEK) 
-is_sos.o: is_sos.cpp sparsesos.h polynomial/polynomial.hpp sos.hpp
+is_sos.o: is_sos.cpp sparsesos.h polynomial/polynomial.hpp sos.hpp  sos_mosek.hpp
 	$(CXX) $(CFLAGS) is_sos.cpp -c 
 sos.o: sos.cpp polynomial/polynomial.hpp sos.hpp
-	$(CXX) $(CFLAGS) $(IPATHS) sos.cpp -c
+	$(CXX) $(CFLAGS) sos.cpp -c
+sos_mosek.o: sos_mosek.cpp sos.hpp sos_mosek.hpp polynomial/polynomial.hpp
+	$(CXX) $(CFLAGS) $(IPATHS) sos_mosek.cpp -c	
 sparsesos.o: sparsesos.cpp sparsesos.h polynomial/polynomial.hpp
 	$(CXX) $(CFLAGS) sparsesos.cpp -c
 polynomial.o: polynomial/polynomial.cpp polynomial/polynomial.hpp

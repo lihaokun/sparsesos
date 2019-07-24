@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <ctime>
 #include "sos.hpp"
+#include "sos_mosek.hpp"
 //#include<thread>
 int main(int argc, char const *argv[])
 {
@@ -162,6 +163,7 @@ int main(int argc, char const *argv[])
                 std::cout<<std::endl;
             }
         }
+        L=move(L1);
         //s="data.dat-s";
         //sparsesos::output(s,p,points,L1,min_bool);    
         //is_sos::SOS_solver_mosek(p,points,L1);
@@ -172,11 +174,25 @@ int main(int argc, char const *argv[])
     printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     std::cout<<"-------SDP solver begin-------\n";
     // system(s.c_str());
-    if (B!=2)
-        is_sos::SOS_solver_mosek(p,points,L);
-    else
-        is_sos::SOS_solver_mosek(p,points,L1);
+    std::vector<std::vector<double>> ans;
+    ans=is_sos::SOS_solver_mosek(p,points,L);
     std::cout<<"-------SDP solver end-------\n";
+    std::vector<polynomial::atomic_polynomial<polynomial::monomial,double>>  sosd;
+    sosd=is_sos::sosd(points,L,ans);
+    for (auto &tmp_p:sosd)
+        std::cout<<is_sos::polynomial_str(tmp_p,varname)<<std::endl;
+    // for (auto &i: ans){
+
+    //     for (auto &j:i)
+    //         std::cout<<j<<" ";
+    //     std::cout<<std::endl;
+    //     if  (i.size()==25)
+    //         is_sos::Cholesky(i.data(),5);
+    //     for (auto &j:i)
+    //         std::cout<<j<<" ";
+    //     std::cout<<std::endl;
+ 
+    // }
     return 0;
 
 }
