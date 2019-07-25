@@ -2,6 +2,7 @@
 #include "sparsesos.h"
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <list>
 #include <string.h>
 #include <stdlib.h>
@@ -13,7 +14,7 @@ int main(int argc, char const *argv[])
 {
     //int numThreads=std::thread::hardware_concurrency();
     //std::cout << "numThreads：" << numThreads << std::endl;
-    std::string s,sout;
+    std::string filename;
     int i1,i2;
     int argc_int=1;
     int B=1;
@@ -47,7 +48,7 @@ int main(int argc, char const *argv[])
         else if  (argv[argc_int][0]!='-' && !file_name_bool)
         {
             file_name_bool=true;
-            s=argv[argc_int];
+            filename=argv[argc_int];
         }
         else{
             std::cout<<argv[argc_int]<<"?\n";
@@ -67,7 +68,7 @@ int main(int argc, char const *argv[])
     std::vector<std::string> varname;
     polynomial::atomic_polynomial<polynomial::monomial,long> p;
     try{
-        p=is_sos::read_polynomial(s,varmap,varname);
+        p=is_sos::read_polynomial(filename,varmap,varname);
     }catch(...){
         std::cout<<"Input error.\n";
         return 0;
@@ -107,8 +108,8 @@ int main(int argc, char const *argv[])
         
     //time_t t;
     
-    s="data.dat-s";
-    sout="data.res";
+    //s="data.dat-s";
+    //sout="data.res";
         
     if (B==0){
         L.push_back(std::vector<polynomial::var>(points.size()));
@@ -175,12 +176,20 @@ int main(int argc, char const *argv[])
     std::cout<<"-------SDP solver begin-------\n";
     // system(s.c_str());
     std::vector<std::vector<double>> ans;
-    ans=is_sos::SOS_solver_mosek(p,points,L);
+    bool sol=is_sos::SOS_solver_mosek(p,points,L,ans);
     std::cout<<"-------SDP solver end-------\n";
+    if (sol)
+        std::cout<<"Solve successful.\n";
+    else   
+        std::cout<<"Solve failed.\n";
     std::vector<polynomial::atomic_polynomial<polynomial::monomial,double>>  sosd;
-    sosd=is_sos::sosd(points,L,ans);
-    for (auto &tmp_p:sosd)
-        std::cout<<is_sos::polynomial_str(tmp_p,varname)<<std::endl;
+    if  (sol)
+    {
+        sosd=is_sos::sosd(points,L,ans);
+        std::fstream fout(filename+".sosd",std::fstream::out);
+        for (auto &tmp_p:sosd)
+            fout<<is_sos::polynomial_str(tmp_p,varname)<<std::endl;
+    }
     // for (auto &i: ans){
 
     //     for (auto &j:i)

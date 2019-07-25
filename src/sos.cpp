@@ -7,6 +7,7 @@
 #include <math.h>
 #include "polynomial/polynomial.hpp"
 #include "sos.hpp"
+#include <iomanip>
 using namespace std;
 using namespace polynomial;
 
@@ -378,29 +379,51 @@ namespace is_sos{
         return ss.str();
     }
     
-    // std::string polynomial_str(const atomic_polynomial<polynomial::monomial,long> &p,const std::vector<std::string> &varname)
-    // {
-    //     if (p.size()==0)
-    //     return "0";
-    //     std::stringstream ss;
-    //     for(auto i=p.begin();i!=p.end();++i)
-    //     {
-    //     if (i!=p.begin() && i->second>=0)
-    //         ss<<"+";
-    //     if (!monomial_empty(i->first)){
-    //         if (i->second==-1)
-    //         ss<<"-";
-    //         else
-    //         if (i->second!=1 )
-    //         ss<< i->second<<"*";
-    //         ss<<monomial_str(i->first,varname);
-    //     }
-    //     else
-    //         ss<<i->second;
-    //     }
-    //     return ss.str();
-    // }
+    std::string polynomial_str(const atomic_polynomial<polynomial::monomial,long> &p,const std::vector<std::string> &varname)
+    {
+        if (p.size()==0)
+        return "0";
+        std::stringstream ss;
+        for(auto i=p.begin();i!=p.end();++i)
+        {
+        if (i!=p.begin() && i->second>=0)
+            ss<<"+";
+        if (!monomial_empty(i->first)){
+            if (i->second==-1)
+            ss<<"-";
+            else
+            if (i->second!=1 )
+            ss<< i->second<<"*";
+            ss<<monomial_str(i->first,varname);
+        }
+        else
+            ss<<i->second;
+        }
+        return ss.str();
+    }
 
+    std::string polynomial_str(const atomic_polynomial<polynomial::monomial,double> &p,const std::vector<std::string> &varname,int precision)
+    {
+        if (p.size()==0)
+        return "0";
+        std::stringstream ss;
+        for(auto i=p.begin();i!=p.end();++i)
+        {
+        if (i!=p.begin() && i->second>=0)
+            ss<<"+";
+        if (!monomial_empty(i->first)){
+            if (i->second==-1)
+            ss<<"-";
+            else
+            if (i->second!=1 )
+            ss<< setprecision(precision)<<i->second<<"*";
+            ss<<monomial_str(i->first,varname);
+        }
+        else
+            ss<<i->second;
+        }
+        return ss.str();
+    }
 
 
     void Cholesky(double* M,std::size_t size)

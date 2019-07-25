@@ -156,7 +156,8 @@ namespace is_sos{
         return monos;
         
     }
-    std::vector<std::vector<double>>   SOS_solver_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,int numthreads)
+    bool   SOS_solver_mosek(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,
+                                                        std::vector<std::vector<double>> & ans,int numthreads)
     {
         std::size_t size=L.size();
         std::size_t tmp_size;
@@ -203,16 +204,23 @@ namespace is_sos{
         }
         M->objective("obj",ObjectiveSense::Minimize,Expr::zeros(1));
         M->solve();
-        std::vector<std::vector<double>> ans(size);
-        for  (int i=0;i<size;++i)
+        //std::vector<std::vector<double>> ans(size);
+        bool tmp_b=(M->getPrimalSolutionStatus()==SolutionStatus::Optimal);
+        if (tmp_b)
         {
-            tmp_size=L[i].size();
-            ans[i].resize(tmp_size*tmp_size);
-            auto tmp_x=X[i]->level();
-            for (int k1=0;k1<tmp_size*tmp_size;++k1)
-                ans[i][k1]=(*tmp_x)[k1];
+            ans.clear();
+            ans.resize(size);
+            for  (int i=0;i<size;++i)
+            {
+                tmp_size=L[i].size();
+                ans[i].resize(tmp_size*tmp_size);
+                auto tmp_x=X[i]->level();
+                for (int k1=0;k1<tmp_size*tmp_size;++k1)
+                    ans[i][k1]=(*tmp_x)[k1];
+            }
+            bool tmp_b=(M->getPrimalSolutionStatus()==SolutionStatus::Optimal);
         }
         M->dispose();
-        return ans;
+        return tmp_b;
     }
 }

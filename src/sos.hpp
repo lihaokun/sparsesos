@@ -12,29 +12,8 @@ namespace is_sos{
     polynomial::atomic_polynomial<polynomial::monomial,long> read_polynomial(std::fstream &fin,std::unordered_map<std::string,int> &varmap,std::vector<std::string> &varname);
     bool sos_support_check(polynomial::atomic_polynomial<polynomial::monomial,long> check,std::vector<polynomial::monomial> &point);
     std::string  monomial_str(const polynomial::monomial &m,const std::vector<std::string> &varname);
-    template <typename Tc>
-    std::string polynomial_str(const polynomial::atomic_polynomial<polynomial::monomial,Tc> &p,const std::vector<std::string> &varname)
-    {
-        if (p.size()==0)
-        return "0";
-        std::stringstream ss;
-        for(auto i=p.begin();i!=p.end();++i)
-        {
-        if (i!=p.begin() && i->second>=0)
-            ss<<"+";
-        if (!monomial_empty(i->first)){
-            if (i->second==-1)
-            ss<<"-";
-            else
-            if (i->second!=1 )
-            ss<< i->second<<"*";
-            ss<<monomial_str(i->first,varname);
-        }
-        else
-            ss<<i->second;
-        }
-        return ss.str();
-    }
+    std::string polynomial_str(const polynomial::atomic_polynomial<polynomial::monomial,double> &p,const std::vector<std::string> &varname,int precision=8);
+    std::string polynomial_str(const polynomial::atomic_polynomial<polynomial::monomial,long> &p,const std::vector<std::string> &varname);
     void Cholesky(double* M,std::size_t size); 
     std::vector<polynomial::atomic_polynomial<polynomial::monomial,double>> sosd(std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L,std::vector<std::vector<double>> &M);
 }
