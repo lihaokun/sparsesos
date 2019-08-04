@@ -6,6 +6,7 @@
 #include <string>
 
 namespace is_sos{
+    void com_connect(polynomial::atomic_polynomial<polynomial::monomial,long> &p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L);
     bool num_init(std::vector<int> &num,int &snum,const std::vector<int> &deg_maxv,const std::vector<int> &deg_minv,const int &degmax,const int &degmin);
     bool num_next(std::vector<int> &num,int &snum,const std::vector<int> &deg_maxv,const std::vector<int> &deg_minv,const int &degmax,const int &degmin);
     polynomial::atomic_polynomial<polynomial::monomial,long> read_polynomial(std::string &filename,std::unordered_map<std::string,int> &varmap,std::vector<std::string> &varname);

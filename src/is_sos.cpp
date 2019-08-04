@@ -1,5 +1,5 @@
 #include <vector>
-#include "sparsesos.h"
+//#include "sparsesos.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -19,14 +19,15 @@ int main(int argc, char const *argv[])
     int argc_int=1;
     int B=1;
     //int min_bool=false;
-    int point_com=0;
+    //int point_com=0;
     bool polyprint_bool=false;
     bool file_name_bool=false;
     std::string point_com_s;
     while (argc_int<argc){
-        if (strcmp(argv[argc_int],"-t")==0)
-            B=2;
-        else if (strcmp(argv[argc_int],"-s")==0)
+        // if (strcmp(argv[argc_int],"-t")==0)
+        //     B=2;
+        //else 
+        if (strcmp(argv[argc_int],"-s")==0)
             B=0;
         else if (strcmp(argv[argc_int],"-c")==0)
             B=1;
@@ -34,17 +35,17 @@ int main(int argc, char const *argv[])
         //     min_bool=true;
         else if (strcmp(argv[argc_int],"-p")==0)
             polyprint_bool=true;
-        else if (strcmp(argv[argc_int],"-d")==0)
-        {
-            if  (argc_int+1<argc){
-                point_com=1;
-                point_com_s=argv[++argc_int];
-            }
-            else{
-                std::cout<<"Input parameter Error： -d.\n";
-                return 0;
-            }
-        }
+        // else if (strcmp(argv[argc_int],"-d")==0)
+        // {
+        //     if  (argc_int+1<argc){
+        //         point_com=1;
+        //         point_com_s=argv[++argc_int];
+        //     }
+        //     else{
+        //         std::cout<<"Input parameter Error： -d.\n";
+        //         return 0;
+        //     }
+        // }
         else if  (argv[argc_int][0]!='-' && !file_name_bool)
         {
             file_name_bool=true;
@@ -81,21 +82,22 @@ int main(int argc, char const *argv[])
     
     //time(&t);
     t=clock();
-    if (point_com==0){
+    //if (point_com==0){
         //sparsesos::get_half(p,points,true);
-        points=is_sos::sos_support_mosek(p,polydim);
-        if (!is_sos::sos_support_check(p,points))
-        {
-            std::cout<<"Error:The vertex of support of polynomial is not even.\n";
-            return 0;
-        }
+    points=is_sos::sos_support_mosek(p,polydim);
+    if (!is_sos::sos_support_check(p,points))
+    {
+        std::cout<<"Error:The vertex of support of polynomial is not even.\n";
+        return 0;
     }
-    else{
-        sparsesos::read_point_data(point_com_s,points);
-    }
+    // }
+    // else{
+    //     sparsesos::read_point_data(point_com_s,points);
+    // }
     //printf("(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     //std::cout<<  points.size()<<std::endl;
-    if (point_com==0 && polyprint_bool){
+    //if (point_com==0 && polyprint_bool){
+    if (polyprint_bool){
     
         for(auto &i:points)
         {
@@ -104,7 +106,7 @@ int main(int argc, char const *argv[])
         std::cout<<std::endl;
     }
     std::vector<std::vector<polynomial::var>> L;
-    std::vector<std::vector<polynomial::var>> L1;
+    //std::vector<std::vector<polynomial::var>> L1;
         
     //time_t t;
     
@@ -118,7 +120,7 @@ int main(int argc, char const *argv[])
         //sparsesos::output(s,p,points,L,min_bool);
    }
     if (B>=1){
-        sparsesos::com_connect(p,points,L);
+        is_sos::com_connect(p,points,L);
         i1=L.begin()->size();i2=0;
         for(auto &i:L){
             if (i.size()==i1)
@@ -141,35 +143,35 @@ int main(int argc, char const *argv[])
         //    sparsesos::output(s,p,points,L,false);
             
     }
-    if (B==2){
-        //std::cout<<std::endl;
+    // if (B==2){
+    //     //std::cout<<std::endl;
         
-        sparsesos::MCS_M(p,points,L, L1);
-        std::sort(L1.begin(),L1.end(),[](const std::vector<polynomial::var> &v1,
-                                        const std::vector<polynomial::var> &v2){return v1.size()>v2.size();});
-        i1=L1.begin()->size();i2=0;
-        for(auto &i:L1)
-            if (i.size()==i1)
-                ++i2;
-            else{
-                std::cout<<i2<<"*"<<i1<<" ";
-                i1=i.size();
-                i2=1;
-            }
-        std::cout<<i2<<"*"<<i1<<std::endl;
-        if (polyprint_bool){
-            for (auto &i:L1){
-                for (auto &j:i)
-                   std::cout<<is_sos::monomial_str(points[j],varname)<<",";
-                std::cout<<std::endl;
-            }
-        }
-        L=move(L1);
-        //s="data.dat-s";
-        //sparsesos::output(s,p,points,L1,min_bool);    
-        //is_sos::SOS_solver_mosek(p,points,L1);
+    //     sparsesos::MCS_M(p,points,L, L1);
+    //     std::sort(L1.begin(),L1.end(),[](const std::vector<polynomial::var> &v1,
+    //                                     const std::vector<polynomial::var> &v2){return v1.size()>v2.size();});
+    //     i1=L1.begin()->size();i2=0;
+    //     for(auto &i:L1)
+    //         if (i.size()==i1)
+    //             ++i2;
+    //         else{
+    //             std::cout<<i2<<"*"<<i1<<" ";
+    //             i1=i.size();
+    //             i2=1;
+    //         }
+    //     std::cout<<i2<<"*"<<i1<<std::endl;
+    //     if (polyprint_bool){
+    //         for (auto &i:L1){
+    //             for (auto &j:i)
+    //                std::cout<<is_sos::monomial_str(points[j],varname)<<",";
+    //             std::cout<<std::endl;
+    //         }
+    //     }
+    //     L=move(L1);
+    //     //s="data.dat-s";
+    //     //sparsesos::output(s,p,points,L1,min_bool);    
+    //     //is_sos::SOS_solver_mosek(p,points,L1);
 
-    }
+    // }
     // s="csdp "+s+" "+sout;
     //printf("(time:%.2fs)\n" ,difftime(time(NULL),t));
     printf("Initialization done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
@@ -188,20 +190,8 @@ int main(int argc, char const *argv[])
         sosd=is_sos::sosd(points,L,ans);
         std::fstream fout(filename+".sosd",std::fstream::out);
         for (auto &tmp_p:sosd)
-            fout<<is_sos::polynomial_str(tmp_p,varname)<<std::endl;
+            fout<<is_sos::polynomial_str(tmp_p,varname,10)<<std::endl;
     }
-    // for (auto &i: ans){
-
-    //     for (auto &j:i)
-    //         std::cout<<j<<" ";
-    //     std::cout<<std::endl;
-    //     if  (i.size()==25)
-    //         is_sos::Cholesky(i.data(),5);
-    //     for (auto &j:i)
-    //         std::cout<<j<<" ";
-    //     std::cout<<std::endl;
- 
-    // }
     return 0;
 
 }

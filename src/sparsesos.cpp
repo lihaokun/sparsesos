@@ -112,16 +112,6 @@ namespace sparsesos{
         }
         */
     }
-  
-
-
-    inline bool monomial_is_even(const polynomial::monomial &v)
-    {
-        for(auto& i:v)
-            if (i.second %2 !=0)
-                return false;
-        return true;
-    }
 //     bool get_half(polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &point,bool is_check)
 //     {
 //         if (p.empty())
@@ -183,56 +173,7 @@ namespace sparsesos{
 //         }
 //         return true;
 //     }
-    void com_connect_dfs
-    (polynomial::var point,polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::list<polynomial::var> &pot,std::vector<polynomial::var> &v,int & sn)
-    {
-        int n=v.size();
-        //polynomial::monomial_pair it;
-        polynomial::monomial mono;
-        auto i=pot.begin();
-        while (i!=pot.end()){
-            mono=points[*i]*points[point];
-            if (monomial_is_even(mono) || p.find(mono)!=p.end())
-            {
-                ++sn;
-                //printf("%d\n",sn);
-                if (sn%10==0)
-                    printf("com_connect...%0.2f%%\r",sn*100.0/points.size());
-                v.push_back(*i);
-                i=pot.erase(i);
-            }
-            else
-                ++i;
-        }
-        int m=v.size();
-        for(;n<m;++n)
-            com_connect_dfs(v[n],p,points,pot,v,sn);
-    }
-    void com_connect
-    (polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<std::vector<polynomial::var>> &L)
-    {
-        std::list<polynomial::var> pot;
-        //std::list<polynomial::var> lst;
-        
-        polynomial::var point;
-        printf("com_connect...   \r");
-        polynomial::monomial mono;
-        int sn=0;
-        for (polynomial::var i=0;i<points.size();++i)
-            pot.push_back(i);// pot
-        while(!pot.empty()){
-            point=pot.front();
-            pot.pop_front();
-            L.push_back(std::vector<polynomial::var>());
-            L.back().push_back(point);
-            ++sn;
-            com_connect_dfs(point,p,points,pot,L.back(),sn);
-            
-        }
-        printf("com_connect...done.   \n");
-        std::sort(L.begin(),L.end(),[](const std::vector<polynomial::var> &v1,
-                                    const std::vector<polynomial::var> &v2){return v1.size()>v2.size();});
-    }
+ 
     void get_graph
     (polynomial::atomic_polynomial<polynomial::monomial,long>&p,std::vector<polynomial::monomial> &points,std::vector<polynomial::var> &v,std::vector<std::unordered_set<polynomial::var>> &G)
     {
