@@ -16,15 +16,15 @@ You can get a free academic license on this [link](https://www.mosek.com/product
 ```
 git clone https://gitlab.com/haokunli/sparsesos.git
 cd sparsesos
-chmod +x ./install.sh
-./install.sh
+chmod +x ./install
+./install
 ```
 
 Uninstall
 ---------------
 ```
-chmod +x ./uninstall.sh
-./uninstall.sh
+chmod +x ./uninstall
+./uninstall
 ```
 
 Using
@@ -32,6 +32,7 @@ Using
 ```
 is_sos filename
 ```
+if solving successful, the result will be saved to filename.sosd .
 Example
 --------------
 ```

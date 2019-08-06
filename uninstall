@@ -33,10 +33,10 @@ then
 fi
 
 
-if ! [ -f "/usr/bin/is_sos" ] && [ -L "/usr/bin/is_sos" ] 
+if [ -f "/usr/bin/is_sos" ] || [ -L "/usr/bin/is_sos" ] 
 then 
     echo -e "\033[1m Remove is_sos from path
-sudo rm /usr/bin/is_sos \033[0m"
-    sudo rm /usr/bin/is_sos
+sudo make -C ./src uninstall\033[0m"
+    sudo make -C ./src uninstall
 fi
 echo -e "\033[32m Uninstallation Successful. \033[0m"

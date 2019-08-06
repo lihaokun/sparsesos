@@ -58,7 +58,6 @@ then
         echo  -e "\033[31m Installation Failed. \033[0m"
         exit 1
     fi
-    
 fi
 if [ $mosek_v -eq 2 ] && ! [ -d mosek/9.0 ]
 then
@@ -82,8 +81,28 @@ then
         echo  -e "\033[31m Installation Failed. \033[0m"
         exit 1
     fi
-    
 fi
+if  ! [ -d lib ]
+then
+    mkdir lib
+fi
+if  ! [ -d bin ]
+then
+    mkdir bin
+fi
+
+if [ $mosek_v -eq 1 ] 
+then
+    cp  -t ./lib/ ./mosek/8/tools/platform/linux64x86/bin/libmosek64.so*  ./mosek/8/tools/platform/linux64x86/bin/libfusion64.a  ./mosek/8/tools/platform/linux64x86/bin/libiomp5.so ./mosek/8/tools/platform/linux64x86/bin/libcilkrts.so.5
+else
+    cp  -t ./lib/ ./mosek/9.0/tools/platform/linux64x86/bin/libmosek64.so*  ./mosek/9.0/tools/platform/linux64x86/bin/libfusion64.a  ./mosek/9.0/tools/platform/linux64x86/bin/libiomp5.so ./mosek/9.0/tools/platform/linux64x86/bin/libcilkrts.so.5
+fi
+if [ $? -ne 0 ]
+then
+    echo  -e "\033[31m Installation Failed. \033[0m"
+    exit 1
+fi
+
 if [ $mosek_v -eq 2 ]
 then
     make -C ./src/ mosek9=1
@@ -96,8 +115,8 @@ then
     exit 1
 fi
 
-ln -sf src/is_sos ./
+ln -sf ${dir}/bin/is_sos ./
 echo  -e "\033[32m Installation Successful. \033[0m"
 echo -e "\033[1m Add is_sos to path 
-sudo ln -s ${dir}/src/is_sos /usr/bin/is_sos \033[0m"
-sudo ln -sf ${dir}/src/is_sos /usr/bin/is_sos
+sudo make install \033[0m"
+sudo make -C ./src/ install
