@@ -1,5 +1,5 @@
 
-#include "polynomial.hpp"
+#include "polynomial/polynomial.hpp"
 #include <iostream>
 #include <algorithm>
 #include <set>

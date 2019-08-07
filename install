@@ -93,9 +93,14 @@ fi
 
 if [ $mosek_v -eq 1 ] 
 then
-    cp  -t ./lib/ ./mosek/8/tools/platform/linux64x86/bin/libmosek64.so*  ./mosek/8/tools/platform/linux64x86/bin/libfusion64.a  ./mosek/8/tools/platform/linux64x86/bin/libiomp5.so ./mosek/8/tools/platform/linux64x86/bin/libcilkrts.so.5
+    cp  -t ./lib/ ./mosek/8/tools/platform/linux64x86/bin/libmosek64.so*  \
+        ./mosek/8/tools/platform/linux64x86/bin/libfusion64.a  \
+        ./mosek/8/tools/platform/linux64x86/bin/libiomp5.so \
+        ./mosek/8/tools/platform/linux64x86/bin/libcilkrts.so.5
 else
-    cp  -t ./lib/ ./mosek/9.0/tools/platform/linux64x86/bin/libmosek64.so*  ./mosek/9.0/tools/platform/linux64x86/bin/libfusion64.a  ./mosek/9.0/tools/platform/linux64x86/bin/libiomp5.so ./mosek/9.0/tools/platform/linux64x86/bin/libcilkrts.so.5
+    cp  -t ./lib/ ./mosek/9.0/tools/platform/linux64x86/bin/libmosek64.so*  \
+        ./mosek/9.0/tools/platform/linux64x86/bin/libfusion64.a  \
+        ./mosek/9.0/tools/platform/linux64x86/bin/libcilkrts.so.5
 fi
 if [ $? -ne 0 ]
 then
@@ -105,12 +110,13 @@ fi
 
 if [ $mosek_v -eq 2 ]
 then
-    make -C ./src/ mosek9=1
+    make mosek9=1
 else
-    make -C ./src/  
+    make  
 fi
 if [ $? -ne 0 ]
 then
+    make clean
     echo  -e "\033[31m Installation Failed. \033[0m"
     exit 1
 fi
@@ -119,4 +125,4 @@ ln -sf ${dir}/bin/is_sos ./
 echo  -e "\033[32m Installation Successful. \033[0m"
 echo -e "\033[1m Add is_sos to path 
 sudo make install \033[0m"
-sudo make -C ./src/ install
+sudo make install
