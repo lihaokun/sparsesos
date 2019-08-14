@@ -16,7 +16,7 @@ using namespace polynomial;
 using namespace mosek::fusion;
 using namespace monty;
 
-namespace is_sos{
+namespace sparsesos{
     vector<monomial>  sos_support_mosek(atomic_polynomial<polynomial::monomial,long>&p,std::size_t polydim,int numthreads)
     {
         

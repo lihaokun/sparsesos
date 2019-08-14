@@ -1,20 +1,4 @@
-#!/bin/bash
 dir=`pwd -P`
-# if   [ -f is_sos ] || [ -L is_sos ]
-# then
-#     echo "File exists."
-#     #echo  "Please run uninstall.sh first."
-#     #exit 1
-#     read -p "Do you want to reinstall?[y/n]" isre
-#     if  [ $isre == y ]
-#     then
-#         chmod +x uninstall.sh
-#         ./uninstall.sh
-#         echo 
-#     else
-#         exit 1
-#     fi
-# fi
 if [ -f "${HOME}/mosek/mosek.lic" ]
 then
     echo -e "\033[32m Mosek license checked. \033[0m"

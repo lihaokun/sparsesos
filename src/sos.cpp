@@ -11,7 +11,7 @@
 using namespace std;
 using namespace polynomial;
 
-namespace is_sos{
+namespace sparsesos{
     inline bool monomial_is_even(const polynomial::monomial &v)
     {
         for(auto& i:v)
@@ -210,7 +210,7 @@ namespace is_sos{
             return atomic_polynomial<monomial,long>(monomial(b->second),1);
         }
     }
-    inline char read_op(fstream &fin)
+    inline char read_op(istream &fin)
     {
         char c;
         while (fin>>c)
@@ -226,7 +226,7 @@ namespace is_sos{
             }
         return ' ';
     }
-    void read_poly_a(fstream &fin,char & op,vector<char> &cst)
+    void read_poly_a(istream &fin,char & op,vector<char> &cst)
     {
         char c;
         int status=0;
@@ -273,13 +273,13 @@ namespace is_sos{
         op=' ';
         return void();
     }
-    // typename atomic_polynomial<monomial,long>::monomial_pair  read_monomial_pair(fstream &fin,char &op,unordered_map<std::string,int> &varmap,vector<std::string> &varname)
+    // typename atomic_polynomial<monomial,long>::monomial_pair  read_monomial_pair(istream &fin,char &op,unordered_map<std::string,int> &varmap,vector<std::string> &varname)
     // {
     //     vector<var_pair> vps;
     //     vector<char> cst;
 
     // }
-    atomic_polynomial<monomial,long>  read_poly_a(fstream &fin,char &op,unordered_map<std::string,int> &varmap,vector<std::string> &varname)
+    atomic_polynomial<monomial,long>  read_poly_a(istream &fin,char &op,unordered_map<std::string,int> &varmap,vector<std::string> &varname)
     {
         stringstream ss;
         char c;
@@ -371,7 +371,7 @@ namespace is_sos{
                 throw 3;
         }
     }
-    atomic_polynomial<polynomial::monomial,long> read_polynomial(fstream &fin,unordered_map<std::string,int> &varmap,vector<std::string> &varname)
+    atomic_polynomial<polynomial::monomial,long> read_polynomial(istream &fin,unordered_map<std::string,int> &varmap,vector<std::string> &varname)
     {
         atomic_polynomial<polynomial::monomial,long>  p2,p1,p3;
         char c;
@@ -415,7 +415,7 @@ namespace is_sos{
     {
         varmap.clear();
         varname.clear();
-        std::fstream fin(filename,std::fstream::in);
+        std::ifstream fin(filename,std::ifstream::in);
         atomic_polynomial<polynomial::monomial,long> p=read_polynomial(fin,varmap,varname);
         fin.close();
         return p;

@@ -68,13 +68,13 @@ int main(int argc, char const *argv[])
     std::vector<std::string> varname;
     polynomial::atomic_polynomial<polynomial::monomial,long> p;
     try{
-        p=is_sos::read_polynomial(filename,varmap,varname);
+        p=sparsesos::read_polynomial(filename,varmap,varname);
     }catch(...){
         std::cout<<"Input error.\n";
         return 0;
     }
     if  (polyprint_bool)
-        std::cout<<is_sos::polynomial_str(p,varname)<<std::endl;
+        std::cout<<sparsesos::polynomial_str(p,varname)<<std::endl;
     printf("Read done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
     std::size_t polydim=varname.size();
     std::vector<polynomial::monomial> points;
@@ -83,8 +83,8 @@ int main(int argc, char const *argv[])
     t=clock();
     //if (point_com==0){
         //sparsesos::get_half(p,points,true);
-    points=is_sos::sos_support_mosek(p,polydim);
-    if (!is_sos::sos_support_check(p,points))
+    points=sparsesos::sos_support_mosek(p,polydim);
+    if (!sparsesos::sos_support_check(p,points))
     {
         std::cout<<"Error:The vertex of support of polynomial is not even.\n";
         return 0;
@@ -100,7 +100,7 @@ int main(int argc, char const *argv[])
     
         for(auto &i:points)
         {
-            std::cout<<is_sos::monomial_str(i,varname)<<",";
+            std::cout<<sparsesos::monomial_str(i,varname)<<",";
         }
         std::cout<<std::endl;
     }
@@ -119,7 +119,7 @@ int main(int argc, char const *argv[])
         //sparsesos::output(s,p,points,L,min_bool);
    }
     if (B>=1){
-        is_sos::com_connect(p,points,L);
+        sparsesos::com_connect(p,points,L);
         i1=L.begin()->size();i2=0;
         for(auto &i:L){
             if (i.size()==i1)
@@ -161,14 +161,14 @@ int main(int argc, char const *argv[])
     //     if (polyprint_bool){
     //         for (auto &i:L1){
     //             for (auto &j:i)
-    //                std::cout<<is_sos::monomial_str(points[j],varname)<<",";
+    //                std::cout<<sparsesos::monomial_str(points[j],varname)<<",";
     //             std::cout<<std::endl;
     //         }
     //     }
     //     L=move(L1);
     //     //s="data.dat-s";
     //     //sparsesos::output(s,p,points,L1,min_bool);    
-    //     //is_sos::SOS_solver_mosek(p,points,L1);
+    //     //sparsesos::SOS_solver_mosek(p,points,L1);
 
     // }
     // s="csdp "+s+" "+sout;
@@ -177,7 +177,7 @@ int main(int argc, char const *argv[])
     std::cout<<"-------SDP solver begin-------\n";
     // system(s.c_str());
     std::vector<std::vector<double>> ans;
-    bool sol=is_sos::SOS_solver_mosek(p,points,L,ans);
+    bool sol=sparsesos::SOS_solver_mosek(p,points,L,ans);
     std::cout<<"-------SDP solver end-------\n";
     if (sol)
         std::cout<<"Solve successful.\n";
@@ -186,10 +186,10 @@ int main(int argc, char const *argv[])
     std::vector<polynomial::atomic_polynomial<polynomial::monomial,double>>  sosd;
     if  (sol)
     {
-        sosd=is_sos::sosd(points,L,ans);
+        sosd=sparsesos::sosd(points,L,ans);
         std::fstream fout(filename+".sosd",std::fstream::out);
         for (auto &tmp_p:sosd)
-            fout<<is_sos::polynomial_str(tmp_p,varname,10)<<std::endl;
+            fout<<sparsesos::polynomial_str(tmp_p,varname,10)<<std::endl;
     }
     return 0;
 

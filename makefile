@@ -1,5 +1,5 @@
 dir=`pwd -P`
-.PHONY :build cleaninstall uninstall
+.PHONY :build clean install uninstall
 build:
 	make -C ./src mosek9=${mosek9}
 clean:
