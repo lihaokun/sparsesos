@@ -11,10 +11,10 @@ echo
 echo "Which mosek version you want to use"
 echo "  1) mosek 8.1"
 echo "  2) mosek 9.0"
-read -p  "Enter a selection (default=1):" mosek_v
+read -p  "Enter a selection (default=2):" mosek_v
 if [ -z $mosek_v ]
 then
-    mosek_v=1
+    mosek_v=2
 fi
 if ! [ $mosek_v == 1 ] && ! [ $mosek_v == 2 ]
 then
