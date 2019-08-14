@@ -24,7 +24,6 @@ namespace sparsesos{
         {
             return vector<monomial>();
         }
-        std::cout<<"poly length:"<<p.size()<<"\n";
         int m=polydim;
         int n=p.size();
         std::cout<<"poly size:"<<n<<" poly dim:"<<m<<"\n";
@@ -42,12 +41,12 @@ namespace sparsesos{
         for (auto &i:deg_minv)
             i=-1;
         for(auto &i:p){
-            std::cout<<i.first.str()<<" "<<i.first.deg()<<"\n";
+            //std::cout<<i.first.str()<<" "<<i.first.deg()<<"\n";
             if ((int)(i.first.deg()/2)>degmax)
                 degmax=i.first.deg()/2;
             if ((int)(i.first.deg()/2)<degmin || degmin<0)
                 degmin=i.first.deg()/2;
-            std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
+            //std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
             for(auto &j:i.first){
                 dd=double(j.second)/2;
                 (*A1)[n1*(m+1)+j.first]=dd;
@@ -56,12 +55,12 @@ namespace sparsesos{
                 if (dd<deg_minv[j.first] || deg_minv[j.first]<0)
                     deg_minv[j.first]=dd;
             }
-            for (auto &j:deg_minv)
-                std::cout<< j <<" ";
-            std::cout<<std::endl;
-            for (auto &j:deg_maxv)
-                std::cout<< j <<" ";
-            std::cout<<std::endl;
+            // for (auto &j:deg_minv)
+            //     std::cout<< j <<" ";
+            // std::cout<<std::endl;
+            // for (auto &j:deg_maxv)
+            //     std::cout<< j <<" ";
+            // std::cout<<std::endl;
             
             (*A1)[n1*(m+1)+m]=-1; 
             ++n1;
@@ -115,10 +114,10 @@ namespace sparsesos{
         //auto y=Expr::dot(C,X);
         cout<<"Initially poly...\n";
         while (b){
-            std::cout<<"num:";
-            for  (auto &i:num)
-                std::cout<<i<<" ";
-            std::cout<<std::endl;
+            // std::cout<<"num:";
+            // for  (auto &i:num)
+            //     std::cout<<i<<" ";
+            // std::cout<<std::endl;
             ++num_mono;
             //if ((num_mono % 100)==0)
             //    std::cout<<"Initially "<<num_mono<<" monomials.\r";
