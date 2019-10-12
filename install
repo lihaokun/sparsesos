@@ -11,12 +11,13 @@ echo
 echo "Which mosek version you want to use"
 echo "  1) mosek 8.1"
 echo "  2) mosek 9.0"
+echo "  3) mosek 9.1"
 read -p  "Enter a selection (default=2):" mosek_v
 if [ -z $mosek_v ]
 then
     mosek_v=2
 fi
-if ! [ $mosek_v == 1 ] && ! [ $mosek_v == 2 ]
+if ! [ $mosek_v == 1 ] && ! [ $mosek_v == 2 ] && ! [ $mosek_v == 3 ]
 then
     echo -e "\033[31m Invalid Input. \033[0m"
     exit 1
@@ -66,6 +67,29 @@ then
         exit 1
     fi
 fi
+if [ $mosek_v -eq 3 ] && ! [ -d mosek/9.1 ]
+then
+    if [ -f mosektoolslinux64x86.tar.bz2 ]
+    then
+        rm mosektoolslinux64x86.tar.bz2
+    fi
+    wget https://download.mosek.com/stable/9.1.1/mosektoolslinux64x86.tar.bz2
+    if [ $? -ne 0 ]
+    then
+        echo  -e "\033[31m Installation Failed. \033[0m"
+        exit 1
+    fi
+    
+    echo "tar -xjf mosektoolslinux64x86.tar.bz2" 
+    
+    tar -xjf mosektoolslinux64x86.tar.bz2
+    make -C mosek/9.1/tools/platform/linux64x86/src/fusion_cxx install
+    if [ $? -ne 0 ]
+    then
+        echo  -e "\033[31m Installation Failed. \033[0m"
+        exit 1
+    fi
+fi
 if  ! [ -d lib ]
 then
     mkdir lib
@@ -81,11 +105,20 @@ then
         ./mosek/8/tools/platform/linux64x86/bin/libfusion64.a  \
         ./mosek/8/tools/platform/linux64x86/bin/libiomp5.so \
         ./mosek/8/tools/platform/linux64x86/bin/libcilkrts.so.5
-else
+fi
+if [ $mosek_v -eq 2 ] 
+then
     cp  -t ./lib/ ./mosek/9.0/tools/platform/linux64x86/bin/libmosek64.so*  \
         ./mosek/9.0/tools/platform/linux64x86/bin/libfusion64.a  \
         ./mosek/9.0/tools/platform/linux64x86/bin/libcilkrts.so.5
 fi
+if [ $mosek_v -eq 3 ] 
+then
+    cp  -t ./lib/ ./mosek/9.1/tools/platform/linux64x86/bin/libmosek64.so*  \
+        ./mosek/9.1/tools/platform/linux64x86/bin/libfusion64.a  \
+        ./mosek/9.1/tools/platform/linux64x86/bin/libcilkrts.so.5
+fi
+
 if [ $? -ne 0 ]
 then
     echo  -e "\033[31m Installation Failed. \033[0m"
@@ -94,10 +127,17 @@ fi
 
 if [ $mosek_v -eq 2 ]
 then
-    make mosek9=1
-else
+    make mosek90=1
+fi
+if [ $mosek_v -eq 1 ]
+then
     make  
 fi
+if [ $mosek_v -eq 3 ]
+then
+    make mosek91=1
+fi
+
 if [ $? -ne 0 ]
 then
     make clean

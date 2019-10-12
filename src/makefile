@@ -3,11 +3,15 @@ MOSEKlib=-lmosek64 -lfusion64
 CFLAGS=-O3 -flto -pthread
 IPATHS=-I../include 
 LPATHS=-L../lib  '-Wl,-rpath=$$ORIGIN/../lib' -Wl,-rpath,../lib
-ifdef mosek9
+ifdef mosek90
 	MOSEKIPATHS=-I../mosek/9.0/tools/platform/linux64x86/h -I../mosek/9.0/tools/platform/linux64x86/include -D mosek_v=9
 #	MOSEKLPATHS=-L../mosek/9.0/tools/platform/linux64x86/bin -Wl,-rpath-link,../mosek/9.0/tools/platform/linux64x86/bin '-Wl,-rpath=$$ORIGIN/../mosek/9.0/tools/platform/linux64x86/bin'
 else
-	MOSEKIPATHS=-I../mosek/8/tools/platform/linux64x86/h -I../mosek/8/tools/platform/linux64x86/include
+	ifdef mosek91
+		MOSEKIPATHS=-I../mosek/9.1/tools/platform/linux64x86/h -I../mosek/9.0/tools/platform/linux64x86/include -D mosek_v=9
+	else
+		MOSEKIPATHS=-I../mosek/8/tools/platform/linux64x86/h -I../mosek/8/tools/platform/linux64x86/include mosek_v=8
+	endif
 #	MOSEKLPATHS=-L../mosek/8/tools/platform/linux64x86/bin -Wl,-rpath-link,../mosek/8/tools/platform/linux64x86/bin '-Wl,-rpath=$$ORIGIN/../mosek/8/tools/platform/linux64x86/bin'
 endif
 

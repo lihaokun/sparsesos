@@ -31,6 +31,19 @@ then
         rm -r ./mosek/9.0
     fi
 fi
+if [ -d "./mosek/9.1" ]
+then
+    read -p "Do you want to delete mosek 9.1 at ./mosek/9.1?[y/n](default=n)" var
+    if [ -z $var ]
+    then
+        var=n
+    fi
+    if [ $var == y ]
+    then
+        echo "rm -r ./mosek/9.1"
+        rm -r ./mosek/9.1
+    fi
+fi
 
 
 if [ -f "/usr/bin/is_sos" ] || [ -L "/usr/bin/is_sos" ] 

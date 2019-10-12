@@ -47,13 +47,30 @@ namespace sparsesos{
             if ((int)(i.first.deg()/2)<degmin || degmin<0)
                 degmin=i.first.deg()/2;
             //std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
-            for(auto &j:i.first){
-                dd=double(j.second)/2;
-                (*A1)[n1*(m+1)+j.first]=dd;
-                if (dd>deg_maxv[j.first])
-                    deg_maxv[j.first]=dd;
-                if (dd<deg_minv[j.first] || deg_minv[j.first]<0)
-                    deg_minv[j.first]=dd;
+            // for(auto &j:i.first){
+            //     dd=double(j.second)/2;
+            //     (*A1)[n1*(m+1)+j.first]=dd;
+            //     if (dd>deg_maxv[j.first])
+            //         deg_maxv[j.first]=dd;
+            //     if (dd<deg_minv[j.first] || deg_minv[j.first]<0)
+            //         deg_minv[j.first]=dd;
+            // }
+            auto tmp_ptr=i.first.begin();
+            for (size_t j=0;j<m;++j)
+            {
+                if (tmp_ptr!=i.first.end() && tmp_ptr->first==j)
+                {
+                    dd=double((tmp_ptr++)->second)/2;
+                    (*A1)[n1*(m+1)+j]=dd;
+                }
+                else
+                {
+                    dd=0;
+                }
+                if (dd>deg_maxv[j])
+                    deg_maxv[j]=dd;
+                if (dd<deg_minv[j] || deg_minv[j]<0)
+                    deg_minv[j]=dd;
             }
             // for (auto &j:deg_minv)
             //     std::cout<< j <<" ";
@@ -66,18 +83,17 @@ namespace sparsesos{
             ++n1;
         }
         auto A=Matrix::dense(n,m+1,A1);
-        //std::cout<<p.str()<<"\n";
         // for (auto &i:deg_maxv)
         //     std::cout<<i<<" ";
         // std::cout<<degmax<<std::endl;
         // for (auto &i:deg_minv)
         //     std::cout<<i<<" ";
-        //std::cout<<degmin<<std::endl;
+        // std::cout<<degmin<<std::endl;
         if (degmax==-1)
         {
             return vector<monomial>();
         }
-        vector<int> num(m,0);//={0};
+        vector<int> num(m);//,0);//={0};
         //;
         //num[m]=-1;
         //num[m-1]=-1;
