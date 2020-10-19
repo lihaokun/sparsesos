@@ -76,6 +76,15 @@ int main(int argc, char const *argv[])
     if  (polyprint_bool)
         std::cout<<sparsesos::polynomial_str(p,varname)<<std::endl;
     printf("Read done.(%.2fs)\n" ,(clock()-(float)t)/CLOCKS_PER_SEC);
+    if (p.empty())
+    {
+        std::cout<<"0=0^2\n";
+        std::fstream fout(filename+".sosd",std::fstream::out);
+        fout<<"0"<<std::endl;
+        fout.close();
+        std::cout<<"Solve successful.\n";
+        return 0;
+    }
     std::size_t polydim=varname.size();
     std::vector<polynomial::monomial> points;
     
@@ -190,6 +199,7 @@ int main(int argc, char const *argv[])
         std::fstream fout(filename+".sosd",std::fstream::out);
         for (auto &tmp_p:sosd)
             fout<<sparsesos::polynomial_str(tmp_p,varname,10)<<std::endl;
+        fout.close();
     }
     return 0;
 

@@ -20,13 +20,13 @@ namespace sparsesos{
     vector<monomial>  sos_support_mosek(atomic_polynomial<polynomial::monomial,long>&p,std::size_t polydim,int numthreads)
     {
         
+        int m=polydim;
+        int n=p.size();
+        std::cout<<"poly size:"<<n<<" poly dim:"<<m<<"\n";
         if (p.empty())
         {
             return vector<monomial>();
         }
-        int m=polydim;
-        int n=p.size();
-        std::cout<<"poly size:"<<n<<" poly dim:"<<m<<"\n";
         auto A1 = new_array_ptr<double, 1>(n*(m+1));
         for(int i=0;i<n*(m+1);++i)
             (*A1)[i]=0;
@@ -41,20 +41,13 @@ namespace sparsesos{
         for (auto &i:deg_minv)
             i=-1;
         for(auto &i:p){
-            //std::cout<<i.first.str()<<" "<<i.first.deg()<<"\n";
+            std::cout<<i.first.str()<<" "<<i.first.deg()<<"\n";
             if ((int)(i.first.deg()/2)>degmax)
                 degmax=i.first.deg()/2;
             if ((int)(i.first.deg()/2)<degmin || degmin<0)
                 degmin=i.first.deg()/2;
-            //std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
-            // for(auto &j:i.first){
-            //     dd=double(j.second)/2;
-            //     (*A1)[n1*(m+1)+j.first]=dd;
-            //     if (dd>deg_maxv[j.first])
-            //         deg_maxv[j.first]=dd;
-            //     if (dd<deg_minv[j.first] || deg_minv[j.first]<0)
-            //         deg_minv[j.first]=dd;
-            // }
+            std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
+
             auto tmp_ptr=i.first.begin();
             for (size_t j=0;j<m;++j)
             {
@@ -72,12 +65,12 @@ namespace sparsesos{
                 if (dd<deg_minv[j] || deg_minv[j]<0)
                     deg_minv[j]=dd;
             }
-            // for (auto &j:deg_minv)
-            //     std::cout<< j <<" ";
-            // std::cout<<std::endl;
-            // for (auto &j:deg_maxv)
-            //     std::cout<< j <<" ";
-            // std::cout<<std::endl;
+            for (auto &j:deg_minv)
+                std::cout<< j <<" ";
+            std::cout<<std::endl;
+            for (auto &j:deg_maxv)
+                std::cout<< j <<" ";
+            std::cout<<std::endl;
             
             (*A1)[n1*(m+1)+m]=-1; 
             ++n1;

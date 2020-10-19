@@ -1,3 +1,5 @@
+#!/bin/bash
+
 dir=`pwd -P`
 if [ -f "${HOME}/mosek/mosek.lic" ]
 then
@@ -12,10 +14,10 @@ echo "Which mosek version you want to use"
 echo "  1) mosek 8.1"
 echo "  2) mosek 9.0"
 echo "  3) mosek 9.1"
-read -p  "Enter a selection (default=2):" mosek_v
+read -p  "Enter a selection (default=3):" mosek_v
 if [ -z $mosek_v ]
 then
-    mosek_v=2
+    mosek_v=3
 fi
 if ! [ $mosek_v == 1 ] && ! [ $mosek_v == 2 ] && ! [ $mosek_v == 3 ]
 then
@@ -131,7 +133,7 @@ then
 fi
 if [ $mosek_v -eq 1 ]
 then
-    make  
+    make mosek8=1
 fi
 if [ $mosek_v -eq 3 ]
 then
