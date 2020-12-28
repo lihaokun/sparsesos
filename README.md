@@ -4,7 +4,7 @@ Sparsesos is a simple implementation of determining whether a polynomial is spar
 
 Dependencies
 ----------------
-* [mosek 8.1 or mosek 9.0](https://www.mosek.com/) 
+* [mosek 8.1 or mosek 9.2](https://www.mosek.com/) 
 
 The intaller will install  mosek automatically, but you need to get a mosek lincense.
 
