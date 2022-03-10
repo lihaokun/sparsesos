@@ -41,12 +41,12 @@ namespace sparsesos{
         for (auto &i:deg_minv)
             i=-1;
         for(auto &i:p){
-            std::cout<<i.first.str()<<" "<<i.first.deg()<<"\n";
+            // std::cout<<i.first.str()<<" "<<i.first.deg()<<"\n";
             if ((int)(i.first.deg()/2)>degmax)
                 degmax=i.first.deg()/2;
             if ((int)(i.first.deg()/2)<degmin || degmin<0)
                 degmin=i.first.deg()/2;
-            std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
+            // std::cout<<((i.first.deg()/2))<<" "<<(degmax)<<" "<<degmin<<"\n";
 
             auto tmp_ptr=i.first.begin();
             for (size_t j=0;j<m;++j)
@@ -65,12 +65,12 @@ namespace sparsesos{
                 if (dd<deg_minv[j] || deg_minv[j]<0)
                     deg_minv[j]=dd;
             }
-            for (auto &j:deg_minv)
-                std::cout<< j <<" ";
-            std::cout<<std::endl;
-            for (auto &j:deg_maxv)
-                std::cout<< j <<" ";
-            std::cout<<std::endl;
+            // for (auto &j:deg_minv)
+            //     std::cout<< j <<" ";
+            // std::cout<<std::endl;
+            // for (auto &j:deg_maxv)
+            //     std::cout<< j <<" ";
+            // std::cout<<std::endl;
             
             (*A1)[n1*(m+1)+m]=-1; 
             ++n1;
